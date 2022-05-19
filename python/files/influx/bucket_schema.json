@@ -1,0 +1,116 @@
+[
+    {
+        "name": "time",
+        "type": "timestamp"
+    },
+    {
+        "name": "rssi1",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "ultra1",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "ultra2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "ultra3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "ultra4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi10",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi11",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi12",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "accelx",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "accely",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "accelz",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "magx",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "magy",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "magz",
+        "type": "field",
+        "dataType": "float"
+    }
+]

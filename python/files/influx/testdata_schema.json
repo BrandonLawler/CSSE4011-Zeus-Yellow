@@ -1,0 +1,81 @@
+[
+    {
+        "name": "time",
+        "type": "timestamp"
+    },
+    {
+        "name": "rssi1",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi10",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi11",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "rssi12",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gridsize",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mobile_x",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mobile_y",
+        "type": "field",
+        "dataType": "float"
+    }
+]
