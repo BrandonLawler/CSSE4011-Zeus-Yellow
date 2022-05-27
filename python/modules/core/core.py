@@ -1,25 +1,46 @@
 import multiprocessing
 import logging
+import json
+import os
 
-from .log import Log
+from .log import Log, LogMessage
 from .courier import Courier
 
 
 class Core:
-    def __init__(self, log_level=logging.INFO, log_folder=None, log_file=None):
+    def __init__(self, log_level=logging.INFO, log_folder=None, log_file=None, log_environment=None, environment_json=None):
         self.log_level = log_level
         self.log_folder = log_folder
         self.log_file = log_file
+        self.log_environment = log_environment
+        self.environment_json = environment_json
+            
 
         self._process_event = multiprocessing.Event()
         self._processes = {}
         self._process_count = 0
 
+        self._setup_environment()
+
         self._courier = Courier("Core", self._process_event, multiprocessing.Event())
-        self._log = Log(self._process_event, self.log_level, self.log_folder, self.log_file)
+        self._log = Log(self._process_event, self.log_level, self.log_folder, self.log_file, self.log_environment)
         self._watcher_process = multiprocessing.Process(target=self.watcher)
+
+        if self.log_environment is not None and self.environment_json is None:
+            self._courier.log(logging.WARNING, "Environment Json not Given - Use of Environment Will be Attempted")
+    
+    def _setup_environment(self):
+        if self.environment_json is not None:
+            with open(self.environment_json, "r") as ej:
+                ejd = json.load(ej)
+                for key, value in ejd.items():
+                    os.environ[str(key)] = str(value)
         
-    def create_class_process(self, process_id, process_function, process_args=[], process_kwargs={}):
+    def create_class_process(self, process_id, process_function, process_args=None, process_kwargs=None):
+        if process_args is None:
+            process_args = []
+        if process_kwargs is None:
+            process_kwargs = {}
         shutdown = multiprocessing.Event()
         self._process_count += 1
         courier = Courier(process_id, self._process_event, shutdown, self._log.log_queue)
@@ -44,8 +65,7 @@ class Core:
         shutdowns_occured = self._process_count
         for id, processData in self._processes.items():
             if processData["shutdown"].is_set():
-                processData["process"].join()
-                self._log.log_queue.put(Log.LogMessage(id, "Shutdown Received", Log.INFO))
+                self._log.log_queue.put(LogMessage(id, "Shutdown Received", Log._INFO))
                 self._process_event.set()
                 shutdowns_occured -= 1
         return shutdowns_occured
@@ -57,6 +77,7 @@ class Core:
             if message is not None:
                 if message.subject == "PID":
                     self._processes[message.sender]["pid"] = message.message
+        self._log.log_queue.put(LogMessage("Core", "Watcher Shutdown", Log._INFO))
         while self._check_shutdowns() != 0:
             pass
     

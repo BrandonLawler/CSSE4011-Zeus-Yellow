@@ -8,7 +8,7 @@ class Message:
     sender: str
     receiver: str
     subject: str
-    message: str
+    message: any
 
 
 @dataclass
@@ -45,7 +45,7 @@ class Courier:
     
     def log(self, level: int, message: str):
         if self.logQueue is not None:
-            self.logQueue.put(LogMessage(self._identifier, message, level))
+            self.logQueue.put(LogMessage(self._identifier, f"{self._identifier} - {message}", level))
     
     def critical(self, message: str):
         self.log(self._CRITICAL, message)
@@ -62,23 +62,33 @@ class Courier:
     def debug(self, message: str):
         self.log(self._DEBUG, message)
     
-    def send(self, recipient: str, message: str):
+    def send(self, recipient: str, message: str, subject: str="", nowait=False):
         if recipient in self.sendQueues.keys() or recipient.lower() in self.sendQueues.keys() or recipient.lower() in [id.lower() for id in self.sendQueues.keys()]:
-            self.sendQueues[recipient].put(Message(self._identifier, recipient, message))
+            try:
+                if nowait:
+                    self.sendQueues[recipient].put_nowait(Message(self._identifier, recipient, subject, message))
+                else:
+                    self.sendQueues[recipient].put(Message(self._identifier, recipient, subject, message))
+            except:
+                self.error(f"{self._identifier} Courier - Unable to Send Message {Message(self._identifier, recipient, subject, message)}")
         else:
             self.error(f"{self._identifier} Courier - Recipient {recipient} not found")
     
-    def receive(self, wait=False, timeout=_DEFAULT_TIMEOUT):
+    def receive(self, wait=False, timeout=_DEFAULT_TIMEOUT) -> Message:
         if wait:
             return self.receiveQueue.get(block=True, timeout=None)
         try:
             return self.receiveQueue.get(block=False, timeout=timeout)
         except:
-            return None
+            return Message("","","","")
+    
+    def check_receive(self):
+        return not self.receiveQueue.empty()
     
     def check_continue(self):
         return not self.process_event.is_set()
     
     def shutdown(self):
         self.shutdown_event.set()
+        self.info("Shutdown Occured")
 

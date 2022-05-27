@@ -4,18 +4,17 @@ from datetime import datetime
 import os
 import json
 import time
+from modules.core.courier import Courier
 
 from src.classes import Reading, TrainingData
 
 
 
 class Api:
-    _DATA_BUCKET = "files/credentials/influx.json"
-    _TEST_DATA_BUCKET = "files/credentials/test-influx.json"
+    _DATA_BUCKET = os.getenv("CSSE4011-YZ-FP-INFLUX-MAIN")
+    _TEST_DATA_BUCKET = os.getenv("CSSE4011-YZ-FP-INFLUX-TRAIN")
 
-    def __init__(self, courier) -> None:
-        self._continue = True
-
+    def __init__(self, courier: Courier) -> None:
         self._courier = courier
         self._token = None
         self._organisation = None
@@ -29,6 +28,8 @@ class Api:
         self._test_mode = False
 
         self._get_credentials(self._DATA_BUCKET)
+
+        self.start()
 
     def _get_credentials(self, filepath):
         with open(os.path.join(os.getcwd(), filepath), 'r') as f:
@@ -89,7 +90,7 @@ class Api:
     
     def clear_data(self, test_data=False):
         self.switch_mode(test_data)
-        print("Clearing data - " + ("Readings" if test_data else "Training"))
+        self._courier.info("Clearing data - " + ("Readings" if test_data else "Training"))
         if not self.connected:
             self.connect()
         start_time = datetime(2000, 1, 1)
@@ -118,24 +119,23 @@ class Api:
         return processResults
 
     def start(self):
-        while self._continue:
+        while self._courier.check_continue():
             if self.connected:
-                if not self._input_queue.empty():
-                    input = self._input_queue.get()
-                    if input["command"] == "serialData":
-                        self.write_reading(input["data"])
+                if self._courier.check_receive():
+                    input = self._courier.recieve()
+                    if input.subject == "data":
+                        self.write_reading(input.message)
                         time.sleep(0.2)
-                    elif input["command"] == "clearData":
+                    elif input.subject == "clearData":
                         self.clear_data()
-                    elif input["command"] == "clearTestData":
+                    elif input.subject == "clearTestData":
                         self.clear_data(True)
-                    elif input["command"] == "pullTestData":
+                    elif input.subject == "pullTestData":
                         data = self.pull_data(test_data=True)
-                        self._output_queue.put(build_message("trainData", data))
-                    elif input["command"] == "testData":
-                        self.write_test_data(input["data"])
+                        self._courier.send(input.sender, data, "TrainData")
+                    elif input.subject == "testData":
+                        self.write_test_data(input.message)
                         time.sleep(0.2)
-                    elif input["command"] == "stop":
-                        self._continue = False
             else:
                 self.connect()
+        self._courier.shutdown()

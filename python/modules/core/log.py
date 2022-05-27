@@ -1,4 +1,5 @@
 import logging
+from logging import handlers
 import os
 from multiprocessing import Queue, Event
 from datetime import datetime
@@ -12,11 +13,12 @@ class Log:
     _INFO = logging.INFO
     _DEBUG = logging.DEBUG
 
-    def __init__(self, process_event: Event, log_level=logging.INFO, log_folder=None, log_file=None) -> None:
+    def __init__(self, process_event: Event, log_level=logging.INFO, log_folder=None, log_file=None, log_environment=None) -> None:
         self._process_event = process_event
 
         self.log_level = log_level
         self.log_folder = log_folder
+        self.log_environment = log_environment
         if log_folder is not None:
             self.log_folder = log_folder.replace("\\", "/")
         self.log_file = log_file
@@ -28,26 +30,35 @@ class Log:
         self.configure()
     
     def configure(self):
-        handers = [logging.StreamHandler()]
+        handlers = [logging.StreamHandler()]
         if self.log_folder is not None or self.log_file is not None:
             if self.log_folder is not None and self.log_file is not None:
                 if len(self.log_file.split("/")) > 1:
-                    self.log_queue.put(LogMessage("Log Process", "Log supplied with two filepaths - defaulting to inputted log_file", Log._ERROR))
-                    handers.append(logging.FileHandler(self.log_file))
+                    self.log_queue.put(LogMessage("Logger", "Log supplied with two filepaths - defaulting to inputted log_file", Log._ERROR))
+                    handlers.append(logging.FileHandler(self.log_file))
                 else:
                     if self.log_file[0] == "/":
                         self.log_file = self.log_file[1:]
-                    handers.append(logging.FileHandler(os.path.join(self.log_folder, self.log_file)))
+                    handlers.append(logging.FileHandler(os.path.join(self.log_folder, self.log_file)))
             elif self.log_file is not None:
-                handers.append(logging.FileHandler(self.log_file))
+                handlers.append(logging.FileHandler(self.log_file))
             else:
                 if self.log_folder.startswith("/"):
                     self.log_folder = self.log_folder[1:]
-                handers.append(logging.FileHandler(os.path.join(os.getcwd(), self.log_folder, f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")))
+                handlers.append(logging.FileHandler(os.path.join(os.getcwd(), self.log_folder, f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")))
+        if self.log_environment is not None:
+            if len(handlers) < 2:
+                try:
+                    path = os.getenv(self.log_environment)
+                    logging.FileHandler(os.path.join(os.getcwd(), path, f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"))
+                except:
+                    self.log_queue.put(LogMessage("Logger", "Log Supplied with Uninitialised Environment Variable - defaulting to console output", Log._ERROR))
+            else:
+                self.log_queue.put(LogMessage("Logger", "Log Supplied with file handler and environment handler - defaulting to file handler"))
         logging.basicConfig(
             level=self.log_level,   
             format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-            handlers=handers
+            handlers=handlers
         )
     
     def log(self, log_item: LogMessage):

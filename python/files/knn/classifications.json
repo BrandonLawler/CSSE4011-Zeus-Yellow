@@ -1,0 +1,6 @@
+{
+    "sitting": 0,
+    "standing": 1,
+    "walking": 2,
+    "running": 3
+}
