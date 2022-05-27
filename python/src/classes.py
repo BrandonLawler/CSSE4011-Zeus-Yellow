@@ -1,29 +1,44 @@
 from dataclasses import dataclass
 from datetime import datetime
 
+from src.common import readToList
+
+
+@dataclass
+class DataRead:
+    timestamp: str
+    raw: dict
+    prediction: int
+
 
 class KnnTrainingData:
     def __init__(self) -> None:
         self._x_data = []
         self._y_data = []
 
-    def extend_csv(self, data):
+    def extend_csv(self, filepath):
         """
         Extend the Training Data from a CSV File Data Import
         """
-        pass
+        with open(filepath, "r") as df:
+            data = df.read().splitlines()
+            for line in data:
+                sdata = line.split(",")
+                self._x_data.append(sdata[:-1])
+                self._y_data.append(sdata[-1])
 
-    def extend_training(self, training_list):
+    def extend_trainings(self, training_list):
         """
         Imports a list of Training Data Classes
         """
-        pass
+        for item in training_list:
+            self.add(item)
 
-    def add(self, trainingData: TrainingData):
+    def add(self, trainingData: DataRead):
         """
         Adds one point of data from Training Data
         """
-        pass
+        self._x_data.append(readToList(trainingData))
 
     @property
     def x(self):
@@ -32,34 +47,3 @@ class KnnTrainingData:
     @property
     def y(self):
         return self._y_data
-
-
-@dataclass
-class DataRead:
-    timestamp: str
-    raw: dict
-
-
-
-
-class ReadingData:
-    def __init__(self, jsonData):
-        if "timestamp" in jsonData.keys():
-            self.timestamp = jsonData["timestamp"]
-        else:
-            self.timestamp = str(datetime.utcnow())
-        self.raw = {}
-        for key, value in jsonData.items():
-            self.raw[key.lower()] = float(value)
-    
-    def build_influx(self):
-        return {}
-
-
-class TrainingData:
-    def __init__(self, jsonData):
-        self._raw = jsonData
-        self.timestamp = datetime.utcnow()
-    
-    def build_influx(self):
-        return {}

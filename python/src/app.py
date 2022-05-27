@@ -1,12 +1,14 @@
-import logging
 import random
 import platform
 import json
+from turtle import update
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 import pyqtgraph as grapher
 import os
+
 from modules.core.courier import Courier
+from src.common import toCapital
 
 
 class App:
@@ -15,6 +17,9 @@ class App:
     _ACTIVETAB = 0
     _TRAINTAB = 1
     _CONFIGTAB = 2
+
+    _CONNECT = -1
+    _DISCONNECT = -2
 
     _TAB_MENU_HEIGHT = 60
 
@@ -35,8 +40,14 @@ class App:
 
         self._started = False
         self._serialPort = None
+        self._trianing = False
+
+        self._classifierPrediction = self._DISCONNECT
 
         self._currentTab = self._ACTIVETAB
+        self._currentMode = None
+
+        self._classifierDict = {}
         self.start()
 
     def _shutdown(self):
@@ -52,13 +63,29 @@ class App:
         if self._fullscreen:
             return self._centralWidget().screenGeometry().width()
         return self._windowedWidth
+    
+    def _get_display_media(self, name):
+        fp = os.path.join(os.getenv("CSSE4011-YZ-FP-MEDIA"), "classifiers")
+        fp = os.path.join(fp, name)
+        if os.path.exists(fp):
+            #get the media file
+            pass
+        elif os.path.exists(os.getenv("CSSE4011-YZ-FP-APP-DEFAULT-MEDIA")):
+            #get default media file
+            self._courier.warning(f"No media file found for classifier: {name}")
+            pass
+        self._courier.error(f"No media file found for classifier: {name} and no Default Media Supplied")
 
     def _switch_tab(self, tab):
         if tab == self._ACTIVETAB:
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "stop")
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), False, "trainMode")
             self._configFrame.hide()
             self._trainFrame.hide()
             self._activeFrame.show()
         elif tab == self._TRAINTAB:
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "stop")
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), True, "trainMode")
             self._configFrame.hide()
             self._activeFrame.hide()
             self._trainFrame.show()
@@ -84,6 +111,31 @@ class App:
             self._started = True
             self._startButton.setText("Stop")
             self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "Start")
+    
+
+    def _update_display(self, prediction, prediction_data=None):
+        """
+        Update Active Tab Display
+        """
+        updated = False
+        if prediction != self._classifierPrediction:
+            updated = True
+            self._classifierPrediction = prediction
+        if prediction_data is not None:
+            self._activeReadingDisplay.setText(prediction_data)
+            predName = self._classifierDict[self._classifierPrediction]
+        elif self._classifierPrediction == self._CONNECT:
+            predName = "connected"
+            self._activeReadingDisplay.setText("Serial Connection Found")
+        elif self._classifierPrediction == self._DISCONNECT:
+            predName = "disconnected"
+            self._activeReadingDisplay.setText("Serial Connection Lost")
+        else:
+            predName = self._classifierDict[self._classifierPrediction]
+            self._activeReadingDisplay.setText(predName)
+        self._activeModeDisplay.setText(toCapital(predName))
+        if updated:
+            self._get_display_media(predName.lower())
 
 
     def _build_tab_menu(self):
@@ -187,6 +239,36 @@ class App:
         if pvalue != self._serialPort:
             self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), pvalue, "serialPort")
             self._serialPort = pvalue
+    
+    def _check_messages(self):
+        if self._courier.check_receive():
+            msg = self._courier.receive()
+            if msg.subject == "registerClassifier":
+                for key, value in msg.message.items():
+                    if key not in self._classifierDict.keys() and value not in self._classifierPrediction.values():
+                        self._classifierDict[key] = {
+                            "name": value,
+                            "deletable": True
+                        }
+                        if key == "sitting" or key == "standing" or key == "walking" or key == "running":
+                            self._classifierDict[key]["deletable"] = False
+                    else:
+                        self._courier.error(f"Mode {key} Already Registered")
+            elif msg.subject == "prediction":
+                if msg.message.prediction not in self._classifierDict.keys():
+                    self._courier.error(f"Mode {msg.message.prediction} Not Registered")
+                    return
+                self._update_display(msg.message.prediction, msg.message)
+            elif msg.subject == "trainSerialData":
+                if self._currentMode is not None:
+                    msg.message.prediction = self._currentMode
+                    self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), msg.message, "testData")
+            elif msg.subject == "serialConnect":
+                self._update_display(self._CONNECT)
+            elif msg.subject == "serialDisconnect":
+                self._update_display(self._DISCONNECT)
+            else:
+                self._courier.error(f"Unknown Message: {msg.subject} - {msg.message}")
 
     def _check_updates(self):
         if not self._courier.check_continue():

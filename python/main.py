@@ -15,6 +15,7 @@ def main():
     core.create_class_process(os.getenv("CSSE4011-YZ-CN-SERIAL"), SComs)
     core.create_class_process(os.getenv("CSSE4011-YZ-CN-INFLUX"), Api)
     core.create_class_process(os.getenv("CSSE4011-YZ-CN-APPLICATION"), App)
+    core.create_class_process(os.getenv("CSSE4011-YZ-CN-INFLUX"), Api)
 
     core.start()
 

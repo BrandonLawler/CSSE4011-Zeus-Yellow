@@ -57,7 +57,7 @@ class Log:
                 self.log_queue.put(LogMessage("Logger", "Log Supplied with file handler and environment handler - defaulting to file handler"))
         logging.basicConfig(
             level=self.log_level,   
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            format="%(asctime)s | %(levelname)s - %(message)s",
             handlers=handlers
         )
     

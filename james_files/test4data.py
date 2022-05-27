@@ -20,7 +20,7 @@ def majority(num_list): # major function can be used to filter intermediate data
                     ctr = 1
         return num_list[idx]
 
-ser = serial.Serial("COM4",9600)
+# ser = serial.Serial("COM4",9600)
 input_file = 'data.csv' # the training data set
 df = pd.read_csv(input_file, header=None)
 y = df.iloc[:,[40]] # the class number
@@ -29,9 +29,12 @@ x = df.drop(df.columns[[40]], axis=1, inplace=True) # drop the class number
 X = df
 knn = KNeighborsClassifier(n_neighbors=11) # the nearest 11 neighbors
 knn.fit(X,Y)
+print(X)
+print(Y)
 tmp = list([[0,0,0,0] for i in range(0, 10)]) # the buffer to store activity data
 #m = [0]*15
 t=0
+input()
 while t<2400:
     data_raw = ser.readline()
     data = data_raw.decode().strip()

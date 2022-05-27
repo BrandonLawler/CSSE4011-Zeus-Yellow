@@ -1,12 +1,15 @@
+from urllib import response
 from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime
 import os
 import json
 import time
-from modules.core.courier import Courier
 
-from src.classes import Reading, TrainingData
+
+from modules.core.courier import Courier
+from src.classes import DataRead
+from src.common import formatInflux
 
 
 
@@ -28,7 +31,6 @@ class Api:
         self._test_mode = False
 
         self._get_credentials(self._DATA_BUCKET)
-
         self.start()
 
     def _get_credentials(self, filepath):
@@ -64,7 +66,7 @@ class Api:
             self._test_mode = False
     
     def build_data(self, reading):
-        fields = reading.build_influx()
+        fields = formatInflux(reading)
         return [
             {
                 "measurement": self._measurement,
@@ -78,12 +80,12 @@ class Api:
             self.connect()
         self.write_api.write(self._bucket, self._organisation, data)
     
-    def write_reading(self, reading: Reading):
+    def write_reading(self, reading):
         self.switch_mode(False)
         data = self.build_data(reading)
         self.write_json(data)
     
-    def write_test_data(self, training: TrainingData):
+    def write_test_data(self, training):
         self.switch_mode(True)
         data = self.build_data(training)
         self.write_json(data)
@@ -105,20 +107,21 @@ class Api:
         query_api = self.client.query_api()
         query = f'from(bucket: "{self._bucket}") |> range(start: -1y) |> filter(fn: (r) => r._measurement == "{self._measurement}")'
         results = query_api.query(query, org=self._organisation)
-        # Results Processing 
         processResults = []
         for result in results:
             for i in range(len(result.records)):
                 if len(processResults) >= i:
                     processResults.append({})
                 processResults[i][result.records[i].get_field()] = result.records[i].get_value()
-        if test_data:
-            processResults = [TrainingData(processResults[i]) for i in range(len(processResults)) if len(processResults[i].keys()) > 0]
-        else:
-            processResults = [Reading(processResults[i]) for i in range(len(processResults)) if len(processResults[i].keys()) > 0]
-        return processResults
+        responseResults = []
+        for result in processResults:
+            pred = result["prediction"]
+            del result["prediction"]
+            responseResults.append(DataRead(**result, prediction=pred))
+        return responseResults
 
     def start(self):
+        self._courier.info("Influx Process Starting")
         while self._courier.check_continue():
             if self.connected:
                 if self._courier.check_receive():
@@ -132,10 +135,12 @@ class Api:
                         self.clear_data(True)
                     elif input.subject == "pullTestData":
                         data = self.pull_data(test_data=True)
-                        self._courier.send(input.sender, data, "TrainData")
+                        self._courier.send(input.sender, data, "trainData")
                     elif input.subject == "testData":
                         self.write_test_data(input.message)
                         time.sleep(0.2)
+                    else:
+                        self._courier.error(f"Unknown Message: {input.subject} - {input.message}")
             else:
                 self.connect()
         self._courier.shutdown()

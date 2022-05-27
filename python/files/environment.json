@@ -4,6 +4,8 @@
     "CSSE4011-YZ-FP-INFLUX-MAIN": "files/influx/main.json",
     "CSSE4011-YZ-FP-INFLUX-TRAIN": "files/influx/train.json",
     "CSSE4011-YZ-FP-KNN-CLASSIFICATIONS": "files/knn/classifications.json",
+    "CSSE4011-YZ-FP-APP-STYLESHEET": "files/stylesheet/app.qss",
+    "CSSE4011-YZ-FP-APP-DEFAULT-MEDIA": "files/media/classifiers/default.png",
     
     "CSSE4011-YZ-PORT-DEFAULT-WIN": "COM4",
     "CSSE4011-YZ-PORT-DEFAULT-LIN": "",
@@ -17,5 +19,6 @@
     "CSSE4011-YZ-APP-WINDOWWIDTH": 600,
     "CSSE4011-YZ-APP-WINDOWHEIGHT": 600,
 
-    "CSSE4011-YZ-KNN-NEIGHBOURS": 11
+    "CSSE4011-YZ-KNN-NEIGHBOURS": 11,
+    "CSSE4011-YZ-KNN-CHANGE-TOLERANCE": 4
 }
