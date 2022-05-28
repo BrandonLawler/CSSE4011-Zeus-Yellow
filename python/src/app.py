@@ -1,13 +1,19 @@
+from ctypes import alignment
 import random
 import platform
 import json
 from turtle import update
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
+from PyQt6.QtGui import *
 import pyqtgraph as grapher
 import os
+import multiprocessing
+import logging
+import math
 
 from modules.core.courier import Courier
+from modules.core.core import Core
 from src.common import toCapital
 
 
@@ -20,8 +26,13 @@ class App:
 
     _CONNECT = -1
     _DISCONNECT = -2
+    _CLASSIFIERROW = 3
 
-    _TAB_MENU_HEIGHT = 60
+    _TAB_MENU_HEIGHT = 22
+
+    _GUARANTEED_KEYS = [
+        "sitting", "standing", "walking", "running"
+    ]
 
     def __init__(self, courier: Courier) -> None:
         self._courier = courier
@@ -42,10 +53,15 @@ class App:
         self._serialPort = None
         self._trianing = False
 
-        self._classifierPrediction = self._DISCONNECT
+        self._classifierPrediction = None
 
         self._currentTab = self._ACTIVETAB
         self._currentMode = None
+        self._trainingRequired = os.getenv("CSSE4011-YZ-APP-TRAININGMAX")
+        self._trainingCurrentTick = 0
+        self._trainingData = []
+
+        self._movie = None
 
         self._classifierDict = {}
         self.start()
@@ -66,17 +82,19 @@ class App:
     
     def _get_display_media(self, name):
         fp = os.path.join(os.getenv("CSSE4011-YZ-FP-MEDIA"), "classifiers")
-        fp = os.path.join(fp, name)
+        fp = os.path.join(fp, name + ".gif")
         if os.path.exists(fp):
-            #get the media file
-            pass
+            return fp
         elif os.path.exists(os.getenv("CSSE4011-YZ-FP-APP-DEFAULT-MEDIA")):
-            #get default media file
             self._courier.warning(f"No media file found for classifier: {name}")
-            pass
+            return os.getenv("CSSE4011-YZ-FP-APP-DEFAULT-MEDIA")
         self._courier.error(f"No media file found for classifier: {name} and no Default Media Supplied")
 
     def _switch_tab(self, tab):
+        if tab == self._currentTab:
+            return
+        elif self._currentMode is not None:
+            self._courier.info("Cannot switch tabs while Training")
         if tab == self._ACTIVETAB:
             self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "stop")
             self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), False, "trainMode")
@@ -106,13 +124,12 @@ class App:
         if self._started:
             self._started = False
             self._startButton.setText("Start")
-            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "Stop")
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "stop")
         else:
             self._started = True
             self._startButton.setText("Stop")
-            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "Start")
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "start")
     
-
     def _update_display(self, prediction, prediction_data=None):
         """
         Update Active Tab Display
@@ -135,7 +152,42 @@ class App:
             self._activeReadingDisplay.setText(predName)
         self._activeModeDisplay.setText(toCapital(predName))
         if updated:
-            self._get_display_media(predName.lower())
+            self._activeDisplayFrame.layout().removeWidget(self._activeDisplay)
+            self._activeDisplay = QLabel("")
+            self._activeDisplay.setMinimumSize(QSize(200, 200))
+            self._activeDisplay.setObjectName("activeDisplay")
+            movie = QMovie(self._get_display_media(predName))
+            self._activeDisplay.setMovie(movie)
+            self._activeDisplayFrame.layout().addWidget(self._activeDisplay)
+            movie.start()
+    
+    def _add_classifier(self):
+        classifier = self._classifierAdder.text().lower()
+        if classifier == "":
+            self._courier.error("Classifier Name Cannot Be Empty")
+            return
+        if classifier in [x["name"] for x in self._classifierDict.values()]:
+            self._courier.error(f"Classifier Already Exists: {classifier}")
+            return
+        self._courier.send(os.getenv("CSSE4011-YZ-CN-LEARNER"), classifier, "registerClassifier")
+    
+    def _delete_button(self, btn):
+        classifier = int(btn.objectName())
+        self._courier.send(os.getenv("CSSE4011-YZ-CN-LEARNER"), classifier, "deleteClassifier")
+    
+    def _training_start(self):
+        mode = self._trainerClassifiers.currentText().lower()
+        if mode not in [x["name"] for x in self._classifierDict.values()]:
+            self._courier.error(f"Classifier Does Not Exist: {mode}")
+            return
+        self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), True, "trainMode")
+        self._trainingCurrentTick = 0
+        self._currentMode = None
+        for key, value in self._classifierDict.items():
+            if value["name"] == mode:
+                self._currentMode = key
+        self._trainingBar.setValue(0)
+        self._trainerText.setText("Starting Training")
 
 
     def _build_tab_menu(self):
@@ -143,6 +195,8 @@ class App:
         self._tabMenuFrame.setLayout(QHBoxLayout())
         self._tabMenuFrame.setFixedWidth(self._get_width())
         self._tabMenuFrame.setFixedHeight(self._TAB_MENU_HEIGHT)
+        self._tabMenuFrame.layout().setContentsMargins(0,0,0,0)
+        self._tabMenuFrame.setObjectName("tabMenuFrame")
 
         self._activeTabButton = QPushButton("Active")
         self._activeTabButton.clicked.connect(self._switch_active_tab)        
@@ -162,34 +216,58 @@ class App:
         self._activeFrame.setLayout(QVBoxLayout())
         self._activeFrame.setFixedWidth(self._get_width())
         self._activeFrame.setFixedHeight(self._get_height() - self._TAB_MENU_HEIGHT)
+        self._activeFrame.setObjectName("ActiveFrame")
 
         self._activeLabel = QLabel("Active Mode")
-        self._activeFrame.layout().addWidget(self._activeLabel)
+        self._activeFrame.layout().addWidget(self._activeLabel, alignment=Qt.AlignmentFlag.AlignCenter)
 
-        self._activeDisplay = None # Put Display images at this location
+        self._activeDisplayFrame = QFrame()
+        self._activeDisplayFrame.setLayout(QHBoxLayout())
+        self._activeDisplay = QLabel("")
+        self._activeDisplay.setMinimumSize(QSize(200, 200))
+        self._activeDisplay.setObjectName("activeDisplay")
+        self._activeDisplayFrame.layout().addWidget(self._activeDisplay)
+        self._activeFrame.layout().addWidget(self._activeDisplayFrame, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self._activeModeDisplay = QLabel("Disconnected")
-        self._activeFrame.layout().addWidget(self._activeModeDisplay)
+        self._activeFrame.layout().addWidget(self._activeModeDisplay, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self._activeReadingDisplay = QLabel("")
-        self._activeFrame.layout().addWidget(self._activeReadingDisplay)
+        self._activeFrame.layout().addWidget(self._activeReadingDisplay, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self._startButton = QPushButton("Start")
         self._startButton.clicked.connect(self._start_active)
-        self._activeFrame.layout().addWidget(self._startButton)
+        self._activeFrame.layout().addWidget(self._startButton, alignment=Qt.AlignmentFlag.AlignCenter)
 
+        self._update_display(self._DISCONNECT)
         if self._currentTab != self._ACTIVETAB:
             self._activeFrame.hide()
         return self._activeFrame
     
     def _build_train_tab(self):
         self._trainFrame = QFrame()
-        self._trainFrame.setLayout(QHBoxLayout())
+        self._trainFrame.setLayout(QVBoxLayout())
         self._trainFrame.setFixedWidth(self._get_width())
         self._trainFrame.setFixedHeight(self._get_height() - self._TAB_MENU_HEIGHT)
+        self._trainFrame.setObjectName("TrainFrame")
 
-        self._trainLabel = QLabel("TRAIN")
-        self._trainFrame.layout().addWidget(self._trainLabel)
+        self._trainLabel = QLabel("Training")
+        self._trainFrame.layout().addWidget(self._trainLabel, alignment=Qt.AlignmentFlag.AlignCenter)
+
+        self._trainerClassifiers = QComboBox()
+        for item in self._classifierDict.keys():
+            self._trainerClassifiers.addItem(toCapital(self._classifierDict[item]["name"]))
+        self._trainFrame.layout().addWidget(self._trainerClassifiers, alignment=Qt.AlignmentFlag.AlignCenter)
+        self._trainingBar = QProgressBar()
+        self._trainingBar.setMaximum(int(os.getenv("CSSE4011-YZ-APP-TRAININGMAX")))
+        self._trainingBar.setMinimum(0)
+        self._trainingBar.setFixedWidth(self._get_width() - 60)
+        self._trainFrame.layout().addWidget(self._trainingBar, alignment=Qt.AlignmentFlag.AlignCenter)
+        self._trainerText = QLabel("")
+        self._trainFrame.layout().addWidget(self._trainerText, alignment=Qt.AlignmentFlag.AlignCenter)
+        self._trainingStartButton = QPushButton("Start Training")
+        self._trainingStartButton.clicked.connect(self._training_start)
+        self._trainFrame.layout().addWidget(self._trainingStartButton, alignment=Qt.AlignmentFlag.AlignCenter)
 
         if self._currentTab != self._TRAINTAB:
             self._trainFrame.hide()
@@ -200,9 +278,10 @@ class App:
         self._configFrame.setLayout(QVBoxLayout())
         self._configFrame.setFixedWidth(self._get_width())
         self._configFrame.setFixedHeight(self._get_height() - self._TAB_MENU_HEIGHT)
+        self._configFrame.setObjectName("ConfigFrame")
 
         self._configLabel = QLabel("Configure")
-        self._configFrame.layout().addWidget(self._configLabel)
+        self._configFrame.layout().addWidget(self._configLabel, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self._serialFrame = QFrame()
         self._serialFrame.setLayout(QHBoxLayout())
@@ -216,17 +295,70 @@ class App:
         self._serialValue.setText(self._serialPort)
 
         self._serialFrame.layout().addWidget(self._serialValue)
-        
+        self._configFrame.layout().addWidget(self._serialFrame)
+
+        self._classifierAdder = QLineEdit()
+        self._classifierAdder.setPlaceholderText("Add Classifier")
+        self._configFrame.layout().addWidget(self._classifierAdder, alignment=Qt.AlignmentFlag.AlignCenter)
+        self._classifierButton = QPushButton()
+        self._classifierButton.setText("Add")
+        self._classifierButton.clicked.connect(self._add_classifier)
+        self._configFrame.layout().addWidget(self._classifierButton, alignment=Qt.AlignmentFlag.AlignCenter)
+
+        self._configFrame.layout().addWidget(self._build_classifiers(), alignment=Qt.AlignmentFlag.AlignCenter)
+
         if self._currentTab != self._CONFIGTAB:
             self._configFrame.hide()
         return self._configFrame
+
+    def _build_classifiers(self):
+        self._classifierFrame = QFrame()
+        self._classifierFrame.setLayout(QVBoxLayout())
+
+        self._deleterButtonGroup = QButtonGroup()
+        for i in range(0, math.ceil(len(self._classifierDict.keys())/self._CLASSIFIERROW)):
+            rframe = QFrame()
+            rframe.setLayout(QHBoxLayout())
+            for j in range(0, self._CLASSIFIERROW):
+                if len(self._classifierDict.keys()) > i*self._CLASSIFIERROW + j:
+                    cframe = QFrame()
+                    cframe.setObjectName("classifierFrame")
+                    cframe.setLayout(QHBoxLayout())
+                    cframe.layout().setContentsMargins(0,0,0,0)
+                    cframe.layout().addWidget(QLabel(toCapital(self._classifierDict[list(self._classifierDict.keys())[i*self._CLASSIFIERROW + j]]["name"])))
+                    if self._classifierDict[list(self._classifierDict.keys())[i*self._CLASSIFIERROW + j]]["deletable"]:
+                        but = QPushButton()
+                        but.setIcon(QIcon(os.getenv("CSSE4011-YZ-FP-MEDIA")+"/icon/trash-can.png"))
+                        but.setIconSize(QSize(6,6))
+                        but.setObjectName(str(list(self._classifierDict.keys())[i*self._CLASSIFIERROW + j]))
+                        self._deleterButtonGroup.addButton(but)
+                        cframe.layout().addWidget(but)
+                    rframe.layout().addWidget(cframe)
+            self._classifierFrame.layout().addWidget(rframe)
+        self._deleterButtonGroup.buttonClicked.connect(self._delete_button)
+
+        return self._classifierFrame
     
+    def _rebuild_classifiers(self):
+        self._configFrame.layout().removeWidget(self._classifierFrame)
+        self._configFrame.layout().addWidget(self._build_classifiers())
+        self._trainerClassifiers.clear()
+        for item in self._classifierDict.keys():
+            self._trainerClassifiers.addItem(toCapital(self._classifierDict[item]["name"]))
+
     def _build(self):
+        with open(os.getenv("CSSE4011-YZ-FP-APP-STYLESHEET"), "r") as stylesheet:
+            self._qtApplication.setStyleSheet(stylesheet.read())
+
         self._centralFrame = QFrame()
         self._centralFrame.closeEvent = lambda event: self._shutdown()
         self._centralFrame.setLayout(QVBoxLayout())
         self._centralFrame.setFixedHeight(self._get_height())
         self._centralFrame.setFixedWidth(self._get_width())
+        self._centralFrame.setContentsMargins(0,0,0,0)
+        self._centralFrame.layout().setSpacing(0)
+        self._centralFrame.layout().setContentsMargins(0,0,0,0)
+        self._centralFrame.setObjectName("centralFrame")
 
         self._centralFrame.layout().addWidget(self._build_tab_menu())
         self._centralFrame.layout().addWidget(self._build_active_tab())
@@ -237,23 +369,42 @@ class App:
     def _check_serial(self):
         pvalue = self._serialValue.text()
         if pvalue != self._serialPort:
-            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), pvalue, "serialPort")
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), pvalue, "setPort")
             self._serialPort = pvalue
+        
+    def _check_training(self):
+        if self._trainingCurrentTick >= os.getenv("CSSE4011-YZ-APP-TRAININGMAX"):
+            self._trainingCurrentTick = 0
+            self._trainerText.setText("Training Complete - Uploading Data ... ")
+            self._trainingBar.setValue(self._trainingCurrentTick)
+            for item in self._trainingData:
+                self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), item, "testData")
+                self._trainingCurrentTick += 1
+                self._trainingBar.setValue(self._trainingCurrentTick)
+            self._currentMode = None
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), False, "trainMode")
+
     
     def _check_messages(self):
         if self._courier.check_receive():
+            print("receiving")
             msg = self._courier.receive()
             if msg.subject == "registerClassifier":
                 for key, value in msg.message.items():
-                    if key not in self._classifierDict.keys() and value not in self._classifierPrediction.values():
+                    self._courier.debug(f"Registering classifier: {key}")
+                    if key not in self._classifierDict.keys() and value not in self._classifierDict.values():
                         self._classifierDict[key] = {
                             "name": value,
                             "deletable": True
                         }
-                        if key == "sitting" or key == "standing" or key == "walking" or key == "running":
+                        if value in self._GUARANTEED_KEYS:
                             self._classifierDict[key]["deletable"] = False
+                        self._rebuild_classifiers()
                     else:
                         self._courier.error(f"Mode {key} Already Registered")
+            elif msg.subject == "deleteClassifier":
+                del self._classifierDict[msg.message]
+                self._rebuild_classifiers()
             elif msg.subject == "prediction":
                 if msg.message.prediction not in self._classifierDict.keys():
                     self._courier.error(f"Mode {msg.message.prediction} Not Registered")
@@ -262,7 +413,11 @@ class App:
             elif msg.subject == "trainSerialData":
                 if self._currentMode is not None:
                     msg.message.prediction = self._currentMode
-                    self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), msg.message, "testData")
+                    self._trainingCurrentTick += 1
+                    self._trainingData.append(msg.message)
+                    self._trainerText.setText(f"Training Data Recieved: {msg.message}")
+                    self._trainingBar.setValue(self._trainingCurrentTick)
+                    self._checkTraining()
             elif msg.subject == "serialConnect":
                 self._update_display(self._CONNECT)
             elif msg.subject == "serialDisconnect":
@@ -274,6 +429,7 @@ class App:
         if not self._courier.check_continue():
             self._shutdown()
         self._check_serial()
+        self._check_messages()
 
     def start(self):
         self._courier.info("App Process Starting")
@@ -287,3 +443,9 @@ class App:
         self._updateTimer.start()
         self._centralFrame.show()
         self._qtApplication.exec()
+
+
+if __name__ == "__main__":
+    core = Core(log_level=logging.DEBUG, environment_json="files/environment.json", log_environment="CSSE4011-YZ-FP-LOGS")
+    courier = Courier("App", multiprocessing.Event(), multiprocessing.Event(), multiprocessing.Queue())
+    app = App(courier=courier)

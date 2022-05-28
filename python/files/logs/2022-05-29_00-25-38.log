@@ -1,0 +1,18 @@
+2022-05-29 00:25:42,417 | INFO - Serial - Serial Process Starting
+2022-05-29 00:25:42,438 | INFO - Influx - Influx Process Starting
+2022-05-29 00:25:42,523 | INFO - Application - App Process Starting
+2022-05-29 00:25:42,702 | INFO - Learner - KNN Process Started
+2022-05-29 00:25:42,726 | DEBUG - Learner - Sending message to Application
+2022-05-29 00:25:42,847 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-05-29 00:25:42,862 | DEBUG - Application - Registering classifier: 0
+2022-05-29 00:25:42,865 | DEBUG - Application - Registering classifier: 1
+2022-05-29 00:25:42,870 | DEBUG - Application - Registering classifier: 2
+2022-05-29 00:25:42,882 | DEBUG - Application - Registering classifier: 3
+2022-05-29 00:25:45,780 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:25:45,786 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:25:45,788 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-05-29 00:25:45,795 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-05-29 00:25:47,110 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:25:47,112 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-05-29 00:25:58,444 | INFO - Application - Shutdown Occured
+2022-05-29 00:25:58,485 | INFO - Shutdown Received

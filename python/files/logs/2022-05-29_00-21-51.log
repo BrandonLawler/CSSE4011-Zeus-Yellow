@@ -1,0 +1,29 @@
+2022-05-29 00:21:54,315 | INFO - Application - App Process Starting
+2022-05-29 00:21:54,351 | INFO - Influx - Influx Process Starting
+2022-05-29 00:21:54,496 | INFO - Learner - KNN Process Started
+2022-05-29 00:21:54,507 | DEBUG - Learner - Sending message to Application
+2022-05-29 00:21:54,530 | INFO - Serial - Serial Process Starting
+2022-05-29 00:21:54,663 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-05-29 00:21:54,664 | DEBUG - Application - Registering classifier: 0
+2022-05-29 00:21:54,677 | DEBUG - Application - Registering classifier: 1
+2022-05-29 00:21:54,696 | DEBUG - Application - Registering classifier: 2
+2022-05-29 00:21:54,732 | DEBUG - Application - Registering classifier: 3
+2022-05-29 00:21:57,338 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:21:57,342 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:21:57,342 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-05-29 00:21:57,343 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-05-29 00:22:00,003 | ERROR - Application - Classifier Does Not Exist: Sitting
+2022-05-29 00:22:29,065 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:22:29,070 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:22:29,077 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-05-29 00:22:29,083 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=False)
+2022-05-29 00:22:37,103 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:22:37,107 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:22:37,110 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-05-29 00:22:37,114 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-05-29 00:22:51,695 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:22:51,698 | DEBUG - Application - Sending message to Serial
+2022-05-29 00:22:51,699 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-05-29 00:22:51,704 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-05-29 00:22:59,702 | INFO - Application - Shutdown Occured
+2022-05-29 00:22:59,729 | INFO - Shutdown Received

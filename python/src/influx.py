@@ -8,7 +8,7 @@ import time
 
 
 from modules.core.courier import Courier
-from src.classes import DataRead
+from src.classes import DataRead, KnnData
 from src.common import formatInflux
 
 
@@ -117,7 +117,7 @@ class Api:
         for result in processResults:
             pred = result["prediction"]
             del result["prediction"]
-            responseResults.append(DataRead(**result, prediction=pred))
+            responseResults.append(KnnData(**result, prediction=pred))
         return responseResults
 
     def start(self):

@@ -50,11 +50,11 @@ class Log:
             if len(handlers) < 2:
                 try:
                     path = os.getenv(self.log_environment)
-                    logging.FileHandler(os.path.join(os.getcwd(), path, f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"))
+                    handlers.append(logging.FileHandler(os.path.join(os.getcwd(), path, f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")))
                 except:
                     self.log_queue.put(LogMessage("Logger", "Log Supplied with Uninitialised Environment Variable - defaulting to console output", Log._ERROR))
             else:
-                self.log_queue.put(LogMessage("Logger", "Log Supplied with file handler and environment handler - defaulting to file handler"))
+                self.log_queue.put(LogMessage("Logger", "Log Supplied with file handler and environment handler - defaulting to file handler", Log._WARNING))
         logging.basicConfig(
             level=self.log_level,   
             format="%(asctime)s | %(levelname)s - %(message)s",

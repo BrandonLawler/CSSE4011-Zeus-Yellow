@@ -1,0 +1,24 @@
+2022-05-28 22:46:46,651 | INFO - Influx - Influx Process Starting
+2022-05-28 22:46:46,728 | INFO - Application - App Process Starting
+2022-05-28 22:46:46,747 | INFO - Learner - KNN Process Started
+2022-05-28 22:46:46,749 | DEBUG - Learner - Sending message to Application
+2022-05-28 22:46:46,845 | INFO - Serial - Serial Process Starting
+2022-05-28 22:46:47,439 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'Jumping', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-05-28 22:46:47,469 | DEBUG - Application - Registering classifier: 0
+2022-05-28 22:46:47,490 | DEBUG - Application - Registering classifier: 1
+2022-05-28 22:46:47,521 | DEBUG - Application - Registering classifier: 2
+2022-05-28 22:46:47,533 | DEBUG - Application - Registering classifier: 3
+2022-05-28 22:46:56,060 | DEBUG - Application - Sending message to Learner
+2022-05-28 22:46:56,070 | DEBUG - Learner - Received message Message(sender='Application', receiver='Learner', subject='registerClassifier', message='jump')
+2022-05-28 22:46:56,084 | INFO - Learner - New Classification Created 4: jump
+2022-05-28 22:46:56,104 | DEBUG - Learner - Sending message to Application
+2022-05-28 22:46:56,115 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={4: 'jump'})
+2022-05-28 22:46:56,125 | DEBUG - Application - Registering classifier: 4
+2022-05-28 22:47:02,564 | DEBUG - Application - Sending message to Learner
+2022-05-28 22:47:02,586 | DEBUG - Learner - Received message Message(sender='Application', receiver='Learner', subject='registerClassifier', message='walk')
+2022-05-28 22:47:02,589 | INFO - Learner - New Classification Created 5: walk
+2022-05-28 22:47:02,598 | DEBUG - Learner - Sending message to Application
+2022-05-28 22:47:02,620 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={5: 'walk'})
+2022-05-28 22:47:02,626 | DEBUG - Application - Registering classifier: 5
+2022-05-28 22:47:16,367 | INFO - Application - Shutdown Occured
+2022-05-28 22:47:16,442 | INFO - Shutdown Received

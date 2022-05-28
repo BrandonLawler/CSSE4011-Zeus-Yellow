@@ -1,0 +1,24 @@
+2022-05-28 21:37:40,148 | INFO - Influx - Influx Process Starting
+2022-05-28 21:37:40,221 | INFO - Application - App Process Starting
+2022-05-28 21:37:40,234 | INFO - Serial - Serial Process Starting
+2022-05-28 21:37:40,261 | INFO - Learner - KNN Process Started
+2022-05-28 21:37:40,266 | DEBUG - Learner - Sending message to Application
+2022-05-28 21:37:49,634 | DEBUG - Application - Sending message to Serial
+2022-05-28 21:37:49,650 | DEBUG - Application - Sending message to Serial
+2022-05-28 21:37:49,653 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-05-28 21:37:49,658 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-05-28 21:38:16,273 | DEBUG - Application - Sending message to Serial
+2022-05-28 21:38:16,274 | DEBUG - Application - Sending message to Serial
+2022-05-28 21:38:16,277 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-05-28 21:38:16,280 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=False)
+2022-05-28 21:38:30,493 | DEBUG - Application - Sending message to Serial
+2022-05-28 21:38:30,497 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='registerClassifier', message='Jumping Jacks')
+2022-05-28 21:38:30,500 | ERROR - Serial - Unknown Message: registerClassifier - Jumping Jacks
+2022-05-28 21:39:07,755 | DEBUG - Application - Sending message to Serial
+2022-05-28 21:39:07,758 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='serialPort', message='COM')
+2022-05-28 21:39:07,766 | ERROR - Serial - Unknown Message: serialPort - COM
+2022-05-28 21:39:07,838 | DEBUG - Application - Sending message to Serial
+2022-05-28 21:39:07,849 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='serialPort', message='COM3')
+2022-05-28 21:39:07,849 | ERROR - Serial - Unknown Message: serialPort - COM3
+2022-05-28 21:39:39,744 | INFO - Application - Shutdown Occured
+2022-05-28 21:39:39,779 | INFO - Shutdown Received

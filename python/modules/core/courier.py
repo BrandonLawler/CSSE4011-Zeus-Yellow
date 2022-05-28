@@ -63,6 +63,7 @@ class Courier:
         self.log(self._DEBUG, message)
     
     def send(self, recipient: str, message: str, subject: str="", nowait=False):
+        self.debug(f"Sending message to {recipient}")
         if recipient in self.sendQueues.keys() or recipient.lower() in self.sendQueues.keys() or recipient.lower() in [id.lower() for id in self.sendQueues.keys()]:
             try:
                 if nowait:
@@ -76,9 +77,13 @@ class Courier:
     
     def receive(self, wait=False, timeout=_DEFAULT_TIMEOUT) -> Message:
         if wait:
-            return self.receiveQueue.get(block=True, timeout=None)
+            msg = self.receiveQueue.get(block=True, timeout=None)
+            self.debug(f"Received message {msg}")
+            return msg
         try:
-            return self.receiveQueue.get(block=False, timeout=timeout)
+            msg = self.receiveQueue.get(block=False, timeout=timeout)
+            self.debug(f"Received message {msg}")
+            return msg
         except:
             return Message("","","","")
     

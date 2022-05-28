@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
+import os
 
 from src.common import readToList
 
@@ -8,7 +9,42 @@ from src.common import readToList
 class DataRead:
     timestamp: str
     raw: dict
-    prediction: int
+
+
+class KnnData:
+    def __init__(self, data=None, prediction=None):
+        self._requiredPreData = int(os.getenv("CSSE4011-YZ-KNN-PREDATA"))
+        self._datapoints = []
+        if data is not None:
+            self._datapoints = data.values()
+        self._dataCollected = 0
+        self.prediction = prediction
+        self.timestamp = None
+    
+    def add(self, data: DataRead):
+        self._dataCollected += 1
+        self._datapoints.append(data)
+        if self.ready():
+            self.timestamp = data.timestamp
+    
+    def ready(self):
+        return self._dataCollected >= self._requiredPreData
+    
+    def migrate(self):
+        if self.ready():
+            np = KnnData()
+            for i in range(0, 3):
+                np.add(self._datapoints[self._dataCollected-i])
+            return np
+        return None
+    
+    @property
+    def x(self):
+        return [x.raw for x in self._datapoints]
+
+    @property
+    def raw(self):
+        return self.x
 
 
 class KnnTrainingData:
@@ -34,11 +70,11 @@ class KnnTrainingData:
         for item in training_list:
             self.add(item)
 
-    def add(self, trainingData: DataRead):
+    def add(self, trainingData: KnnData):
         """
         Adds one point of data from Training Data
         """
-        self._x_data.append(readToList(trainingData))
+        self._x_data.append(trainingData.x)
 
     @property
     def x(self):

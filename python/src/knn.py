@@ -29,6 +29,8 @@ def majority(num_list):
 
 
 class KNN:
+    _PREDICTION_TOLERANCE = 5
+
     def __init__(self, courier: Courier, dataFile=None) -> None:
         self._courier = courier
 
@@ -39,8 +41,14 @@ class KNN:
         self._knn = None
         self._trained = False
 
+        self._prediction = None
+        self._lastPrediction = None
+        self._predCount = 0
+
         self._get_data()
+        self._get_classifications()
         self._build_knn()
+        self.start()
     
     def _build_knn(self, train=False):
         self._knn = KNeighborsClassifier(n_neighbors=os.getenv("CSSE4011-YZ-KNN-NEIGHBOURS"))
@@ -56,7 +64,7 @@ class KNN:
     def _write_classifications(self):
         with open(os.getenv("CSSE4011-YZ-FP-KNN-CLASSIFICATIONS"), "w") as cf:
             data = {}
-            for key, value in self._classifiers:
+            for key, value in self._classifiers.items():
                 data[value] = key
             json.dump(data, cf)
     
@@ -67,16 +75,16 @@ class KNN:
     def _register_classification(self, classification):
         if classification not in self._classifiers.keys():
             classId = None
-            i, values = 0, self._classifiers.values()
+            i, values = 0, self._classifiers.keys()
             while classId is None:
                 if i not in values:
                     classId = i
                 i += 1
             self._classifiers[classId] = classification
             self._courier.info(f"New Classification Created {classId}: {classification}")
-            self._knn = self._build_knn(True)
             self._write_classifications()
             self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), {classId: classification}, "registerClassifier")
+            return
         self._courier.error(f"Classification {classification} Already Exists")
 
     def _train(self):
@@ -93,11 +101,12 @@ class KNN:
             elif msg.subject == "deleteClassifier":
                 del self._classifiers[msg.message]
                 self._write_classifications()
+                self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), msg.message, "deleteClassifier")
             elif msg.subject == "trainData":
                 self._knnTrainData.extend_trainings(msg.message)
             elif msg.subject == "serialData":
-                prediction = self.predict(msg.message)
-                msg.message.prediction = prediction
+                self.predict(msg.message)
+                msg.message.prediction = self._prediction
                 self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), msg.message, "prediction") 
                 self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), msg.message, "data")
             else:
@@ -106,14 +115,26 @@ class KNN:
     def predict(self, data: DataRead):
         if not self._trained:
             self._train()
-        return self._knn.predict(
+        prediction = self._knn.predict(
             data.raw
         )
+        if self._prediction is None:
+            self._prediction = prediction
+            self._prevPrediction = prediction
+            self._predCount = self._PREDICTION_TOLERANCE
+        else:
+            if prediction != self._prevPrediction:
+                self._predCount = 0
+                self._prevPrediction = prediction
+            elif self._predCount < self._PREDICTION_TOLERANCE:
+                self._predCount += 1
+            else:
+                self._prediction = prediction
 
     def start(self):
         self._courier.info("KNN Process Started")
         self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), self._classifiers, "registerClassifier")
-        self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), "", "pullTestData")
+        # self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), "", "pullTestData")
         while self._courier.check_continue():
             self._check_messages()
         self._courier.shutdown()

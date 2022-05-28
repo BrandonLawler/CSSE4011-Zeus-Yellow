@@ -1,0 +1,10 @@
+2022-05-28 22:07:24,434 | INFO - Serial - Serial Process Starting
+2022-05-28 22:07:24,458 | INFO - Influx - Influx Process Starting
+2022-05-28 22:07:24,914 | INFO - Application - App Process Starting
+2022-05-28 22:07:24,935 | INFO - Learner - KNN Process Started
+2022-05-28 22:07:24,935 | DEBUG - Learner - Sending message to Application
+2022-05-28 22:07:46,430 | DEBUG - Application - Sending message to Learner
+2022-05-28 22:07:46,452 | DEBUG - Learner - Received message Message(sender='Application', receiver='Learner', subject='registerClassifier', message='Jumping')
+2022-05-28 22:07:46,486 | INFO - Learner - New Classification Created 0: Jumping
+2022-05-28 22:07:50,611 | INFO - Application - Shutdown Occured
+2022-05-28 22:07:50,639 | INFO - Shutdown Received

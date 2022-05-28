@@ -1,0 +1,5 @@
+2022-05-28 17:26:01,536 | INFO - Serial - Serial Process Starting
+2022-05-28 17:26:01,575 | INFO - Application - App Process Starting
+2022-05-28 17:26:01,581 | INFO - Influx - Influx Process Starting
+2022-05-28 17:26:11,417 | INFO - Application - Shutdown Occured
+2022-05-28 17:26:11,483 | INFO - Shutdown Received

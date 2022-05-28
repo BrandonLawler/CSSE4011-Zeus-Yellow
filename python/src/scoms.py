@@ -6,12 +6,12 @@ from time import time
 import os
 
 from modules.core.courier import Courier
-from src.classes import DataRead
+from src.classes import DataRead, KnnData
 
 
 class SComs:
     _BAUD_RATE = 9600
-    _INTERVAL = 0.2
+    _INTERVAL = 0.05
 
     def __init__(self, courier: Courier) -> None:
         self._continue = True
@@ -22,6 +22,9 @@ class SComs:
         self.port = None
         self._connected = False
         self._trainMode = False
+
+        self._filters = os.getenv("CSSE4011-YZ-SERIAL-FILTERS").split(",")
+        self._dataPoint = KnnData()
 
         self.start()
     
@@ -39,6 +42,12 @@ class SComs:
             else:
                 self._courier.error(f"Unknown Message: {input.subject} - {input.message}")
     
+    def _filter_data(self, data):
+        fdata = {}
+        for item in self._filters:
+            fdata[item] = data[item]
+        return fdata
+    
     def connect(self):
         if self.port is None:
             self.port = self._default_port
@@ -51,9 +60,10 @@ class SComs:
             pass
     
     def disconnect(self):
-        self._serial.close()
-        self._connected = False
-        self._serial = None
+        if self._connected:
+            self._serial.close()
+            self._connected = False
+            self._serial = None
     
     def read(self):
         if not self._connected:
@@ -61,12 +71,12 @@ class SComs:
         try:
             raw_data = self._serial.readline()
             received_data = json.loads(raw_data.decode().strip())
-            return DataRead(datetime.now(), received_data)
+            data = DataRead(datetime.now(), self._filter_data(received_data))
+            self._dataPoint.add(data)
         except:
             self._connected = False
             self._courier.error("Serial Disconnection Occured")
             self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), "", "serialDisconnect")
-            return None
     
     def tester(self):
         data = {}
@@ -80,11 +90,12 @@ class SComs:
         self._courier.info("Serial Process Starting")
         while self._courier.check_continue():
             if self._connected:
-                data = self.read()
-                if data is not None:
+                self.read()
+                if self._dataPoint.ready():
                     if not self._trainMode:
-                        self._courier.send(os.getenv("CSSE4011-YZ-CN-LEARNER"), data, "serialData", nowait=True)
+                        self._courier.send(os.getenv("CSSE4011-YZ-CN-LEARNER"), self._dataPoint, "serialData", nowait=True)
                     else:
-                        self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), data, "trainSerialData")
+                        self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), self._dataPoint, "trainSerialData")
+                    self._dataPoint = self._dataPoint.migrate()
             self._check_queue()
         self._courier.shutdown()

@@ -1,0 +1,9 @@
+2022-05-28 22:11:13,007 | INFO - Serial - Serial Process Starting
+2022-05-28 22:11:13,142 | INFO - Influx - Influx Process Starting
+2022-05-28 22:11:13,386 | INFO - Learner - KNN Process Started
+2022-05-28 22:11:13,394 | DEBUG - Learner - Sending message to Application
+2022-05-28 22:11:13,434 | INFO - Application - App Process Starting
+2022-05-28 22:11:13,656 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'jumping', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-05-28 22:11:13,676 | DEBUG - Application - Registering classifier: 0
+2022-05-28 22:11:15,464 | INFO - Application - Shutdown Occured
+2022-05-28 22:11:15,497 | INFO - Shutdown Received

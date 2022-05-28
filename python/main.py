@@ -5,7 +5,7 @@ from modules.core.core import Core
 from src.app import App
 from src.scoms import SComs
 from src.influx import Api
-
+from src.knn import KNN
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
     core.create_class_process(os.getenv("CSSE4011-YZ-CN-SERIAL"), SComs)
     core.create_class_process(os.getenv("CSSE4011-YZ-CN-INFLUX"), Api)
     core.create_class_process(os.getenv("CSSE4011-YZ-CN-APPLICATION"), App)
-    core.create_class_process(os.getenv("CSSE4011-YZ-CN-INFLUX"), Api)
+    core.create_class_process(os.getenv("CSSE4011-YZ-CN-LEARNER"), KNN)
 
     core.start()
 
