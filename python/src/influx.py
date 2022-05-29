@@ -23,7 +23,6 @@ class Api:
         self._organisation = None
         self._bucket = None
         self._url = None
-        self._measurement = None
         self.client = None
         self.write_api = None
         self.connected = False
@@ -40,7 +39,6 @@ class Api:
             self._organisation = credentials['organisation']
             self._bucket = credentials['bucket']
             self._url = credentials['url']
-            self._measurement = credentials['measurement']
         if self._token is None or self._token == "" or self._organisation is None or self._organisation == "" or self._bucket is None or self._bucket == "" or self._url is None or self._url == "":
             raise Exception("Credentials not found - Please update influx.json in files/credentials/")
     
@@ -69,7 +67,6 @@ class Api:
         fields = formatInflux(reading)
         return [
             {
-                "measurement": self._measurement,
                 "fields": fields,
                 "time": reading.timestamp
             }
@@ -98,14 +95,14 @@ class Api:
         start_time = datetime(2000, 1, 1)
         end_time = datetime.utcnow()
         delete_api = self.client.delete_api()
-        delete_api.delete(start_time, end_time, f'_measurement="{self._measurement}"', bucket=self._bucket, org=self._organisation)
+        delete_api.delete(start_time, end_time, bucket=self._bucket, org=self._organisation)
     
     def pull_data(self, test_data=False):
         self.switch_mode(test_data)
         if not self.connected:
             self.connect()
         query_api = self.client.query_api()
-        query = f'from(bucket: "{self._bucket}") |> range(start: -1y) |> filter(fn: (r) => r._measurement == "{self._measurement}")'
+        query = f'from(bucket: "{self._bucket}") |> range(start: -1y) |> filter(fn: (r)")'
         results = query_api.query(query, org=self._organisation)
         processResults = []
         for result in results:
