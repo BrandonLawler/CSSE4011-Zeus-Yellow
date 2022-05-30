@@ -2,8 +2,6 @@ from dataclasses import dataclass
 from datetime import datetime
 import os
 
-from src.common import readToList
-
 
 @dataclass
 class DataRead:
@@ -34,7 +32,7 @@ class KnnData:
         if self.ready():
             np = KnnData()
             for i in range(0, 3):
-                np.add(self._datapoints[self._dataCollected-i])
+                np.add(self._datapoints[i+1])
             return np
         return None
     
@@ -83,3 +81,13 @@ class KnnTrainingData:
     @property
     def y(self):
         return self._y_data
+
+
+if __name__ == "__main__":
+    print("This is a module and should not be run directly")
+    os.environ["CSSE4011-YZ-KNN-PREDATA"] = "4"
+    c1 = DataRead(datetime.now(), {'a1':1.0, 'a3':1.0})
+    c2 = DataRead(datetime.now(), {'a2':1.0, 'a4':1.0})
+    c3 = DataRead(datetime.now(), {'a3':1.0, 'a5':1.0})
+    c4 = DataRead(datetime.now(), {'a4':1.0, 'a6':1.0})
+    knn = KnnData()
