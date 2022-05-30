@@ -56,8 +56,8 @@ class SComs:
             self._connected = True
             self._courier.info(f"Serial Connected on Port: {self.port}")
             self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), "", "serialConnect")
-        except:
-            pass
+        except Exception as e:
+            self._courier.info(f"Serial Connection Failed\n  {e}")
     
     def disconnect(self):
         if self._connected:
@@ -73,6 +73,7 @@ class SComs:
             received_data = json.loads(raw_data.decode().strip())
             data = DataRead(datetime.now(), self._filter_data(received_data))
             self._dataPoint.add(data)
+            self._courier.debug(f"Data Recieved - {data}")
         except:
             self._connected = False
             self._courier.error("Serial Disconnection Occured")
