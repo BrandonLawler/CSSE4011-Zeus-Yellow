@@ -186,6 +186,7 @@ class App:
                 self._currentMode = key
         self._trainingBar.setValue(0)
         self._trainerText.setText("Starting Training")
+        self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "start")
 
 
     def _build_tab_menu(self):
@@ -372,6 +373,8 @@ class App:
         
     def _check_training(self):
         if self._trainingCurrentTick >= os.getenv("CSSE4011-YZ-APP-TRAININGMAX"):
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "stop")
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), False, "trainMode")
             self._trainingCurrentTick = 0
             self._trainerText.setText("Training Complete - Uploading Data ... ")
             self._trainingBar.setValue(self._trainingCurrentTick)
@@ -380,7 +383,6 @@ class App:
                 self._trainingCurrentTick += 1
                 self._trainingBar.setValue(self._trainingCurrentTick)
             self._currentMode = None
-            self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), False, "trainMode")
 
     
     def _check_messages(self):
