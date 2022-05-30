@@ -2,11 +2,9 @@ from ctypes import alignment
 import random
 import platform
 import json
-from turtle import update
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
-import pyqtgraph as grapher
 import os
 import multiprocessing
 import logging

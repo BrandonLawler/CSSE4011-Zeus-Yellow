@@ -2,3 +2,5 @@ pandas
 sklearn
 numpy
 pyserial
+influxdb_client
+PyQt6
