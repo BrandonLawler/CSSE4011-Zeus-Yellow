@@ -68,3 +68,7 @@ class Log:
         while not self._process_event.is_set():
             log_item = self.log_queue.get(block=True, timeout=None)
             self.log(log_item)
+        while not self.log_queue.empty():
+            log_item = self.log_queue.get(block=True, timeout=None)
+            self.log(log_item)
+        self.log(LogMessage("Logger", "Logger Process Exited", Log._INFO))

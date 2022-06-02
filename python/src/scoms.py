@@ -22,6 +22,7 @@ class SComs:
         self.port = None
         self._connected = False
         self._trainMode = False
+        self._lastread = None
 
         self._filters = os.getenv("CSSE4011-YZ-SERIAL-FILTERS").split(",")
         self._dataPoint = KnnData()
@@ -91,12 +92,14 @@ class SComs:
         self._courier.info("Serial Process Starting")
         while self._courier.check_continue():
             if self._connected:
-                self.read()
-                if self._dataPoint.ready():
-                    if not self._trainMode:
-                        self._courier.send(os.getenv("CSSE4011-YZ-CN-LEARNER"), self._dataPoint, "serialData", nowait=True)
-                    else:
-                        self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), self._dataPoint, "trainSerialData")
-                    self._dataPoint = self._dataPoint.migrate()
+                if self._lastread is None or time() - self._lastread > self._INTERVAL:
+                    self.read()
+                    if self._dataPoint.ready():
+                        if not self._trainMode:
+                            self._courier.send(os.getenv("CSSE4011-YZ-CN-LEARNER"), self._dataPoint, "serialData", nowait=True)
+                        else:
+                            self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), self._dataPoint, "trainSerialData")
+                        self._dataPoint = self._dataPoint.migrate()
             self._check_queue()
+        self._courier.info("Serial Process Stopping")
         self._courier.shutdown()

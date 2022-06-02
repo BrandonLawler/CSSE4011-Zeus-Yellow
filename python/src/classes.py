@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 import os
+from src.common import orderData
 
 
 @dataclass
@@ -13,11 +14,26 @@ class KnnData:
     def __init__(self, data=None, prediction=None):
         self._requiredPreData = int(os.getenv("CSSE4011-YZ-KNN-PREDATA"))
         self._datapoints = []
-        if data is not None:
-            self._datapoints = data.values()
         self._dataCollected = 0
         self.prediction = prediction
         self.timestamp = None
+
+        if data is not None:
+            rdata = {}
+            for key, value in data.items():
+                i = int(key.split("-")[1])
+                if i not in rdata.keys():
+                    rdata[i] = {}
+                rdata[i][key.split("-")[0]] = value
+            for value in rdata.values():
+                self.add(DataRead(datetime.now(), value))
+    
+    def __str__(self) -> str:
+        string = "\nKNN Data:"
+        for i in range(0, self._requiredPreData):
+            string += f" {i}: {self._datapoints[i]}"
+        string += f" {self.prediction}"
+        return string
     
     def add(self, data: DataRead):
         self._dataCollected += 1
@@ -31,24 +47,40 @@ class KnnData:
     def migrate(self):
         if self.ready():
             np = KnnData()
-            for i in range(0, 3):
+            for i in range(0, self._requiredPreData-1):
                 np.add(self._datapoints[i+1])
             return np
         return None
     
     @property
     def x(self):
-        return [x.raw for x in self._datapoints]
+        data = []
+        for point in self._datapoints:
+            data.extend(orderData(point.raw))
+        return data
 
     @property
     def raw(self):
-        return self.x
+        data = {}
+        i = 0
+        for point in self._datapoints:
+            for key, value in point.raw.items():
+                if data != "timestamp":
+                    data[f"{key}-{i}"] = value
+            i += 1
+        data["prediction"] = float(self.prediction)
+        if "timestamp" in data.keys():
+            del data["timestamp"]
+        return data
 
 
 class KnnTrainingData:
     def __init__(self) -> None:
         self._x_data = []
         self._y_data = []
+
+    def __str__(self) -> str:
+        return f"KNN Training Data for - {self._y_data}"
 
     def extend_csv(self, filepath):
         """
@@ -60,6 +92,7 @@ class KnnTrainingData:
                 sdata = line.split(",")
                 self._x_data.append(sdata[:-1])
                 self._y_data.append(sdata[-1])
+        self._refresh()
 
     def extend_trainings(self, training_list):
         """
@@ -73,6 +106,14 @@ class KnnTrainingData:
         Adds one point of data from Training Data
         """
         self._x_data.append(trainingData.x)
+        self._y_data.append(trainingData.prediction)
+        self._refresh()
+    
+    def _refresh(self):
+        newdata = []
+        for item in self._y_data:
+            newdata.append(int(item))
+        self._y_data = newdata
 
     @property
     def x(self):

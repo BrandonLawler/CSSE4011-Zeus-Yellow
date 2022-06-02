@@ -51,7 +51,7 @@ class KNN:
         self.start()
     
     def _build_knn(self, train=False):
-        self._knn = KNeighborsClassifier(n_neighbors=os.getenv("CSSE4011-YZ-KNN-NEIGHBOURS"))
+        self._knn = KNeighborsClassifier(n_neighbors=int(os.getenv("CSSE4011-YZ-KNN-NEIGHBOURS")))
         if train:
             self._train()
     
@@ -102,6 +102,7 @@ class KNN:
                 del self._classifiers[msg.message]
                 self._write_classifications()
                 self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), msg.message, "deleteClassifier")
+                self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), msg.message, "clearTestData")
             elif msg.subject == "trainData":
                 self._knnTrainData.extend_trainings(msg.message)
             elif msg.subject == "serialData":
@@ -116,8 +117,8 @@ class KNN:
         if not self._trained:
             self._train()
         prediction = self._knn.predict(
-            data.raw
-        )
+            [data.x]
+        )[0]
         if self._prediction is None:
             self._prediction = prediction
             self._prevPrediction = prediction
@@ -134,7 +135,8 @@ class KNN:
     def start(self):
         self._courier.info("KNN Process Started")
         self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), self._classifiers, "registerClassifier")
-        # self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), "", "pullTestData")
+        self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), "", "pullTestData")
         while self._courier.check_continue():
             self._check_messages()
+        self._courier.info("KNN Process Stopped")
         self._courier.shutdown()

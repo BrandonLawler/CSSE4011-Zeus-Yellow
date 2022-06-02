@@ -1,0 +1,69 @@
+2022-06-02 15:50:55,622 | INFO - Serial - Serial Process Starting
+2022-06-02 15:50:55,800 | INFO - Influx - Influx Process Starting
+2022-06-02 15:50:55,839 | INFO - Application - App Process Starting
+2022-06-02 15:50:56,380 | INFO - Learner - KNN Process Started
+2022-06-02 15:50:56,383 | DEBUG - Learner - Sending message to Application
+2022-06-02 15:50:56,388 | DEBUG - Learner - Sending message to Influx
+2022-06-02 15:50:56,394 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-06-02 15:50:56,407 | DEBUG - Application - Registering classifier: 0
+2022-06-02 15:50:56,410 | DEBUG - Application - Registering classifier: 1
+2022-06-02 15:50:56,410 | DEBUG - Application - Registering classifier: 2
+2022-06-02 15:50:56,412 | DEBUG - Application - Registering classifier: 3
+2022-06-02 15:50:56,412 | DEBUG - Influx - Received message Message(sender='Learner', receiver='Influx', subject='pullTestData', message='')
+2022-06-02 15:50:59,166 | DEBUG - Application - Sending message to Serial
+2022-06-02 15:50:59,169 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='start', message='')
+2022-06-02 15:50:59,172 | INFO - Serial - Serial Connected on Port: COM4
+2022-06-02 15:50:59,173 | DEBUG - Serial - Sending message to Application
+2022-06-02 15:50:59,175 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='serialConnect', message='')
+2022-06-02 15:50:59,288 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 50, 59, 288758), raw={'aX': 5.7684, 'aY': -1.67352, 'aZ': -7.40544, 'gX': -0.139792, 'gY': 0.251625, 'gZ': 0.712938, 'mX': 75.508545, 'mY': -139.452911, 'mZ': -1032.035278})
+2022-06-02 15:50:59,447 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 50, 59, 446670), raw={'aX': 5.7684, 'aY': -1.67352, 'aZ': -7.40544, 'gX': -0.139792, 'gY': 0.251625, 'gZ': 0.712938, 'mX': 75.508545, 'mY': -139.452911, 'mZ': -1032.035278})
+2022-06-02 15:50:59,619 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 50, 59, 618571), raw={'aX': 5.7684, 'aY': -1.67352, 'aZ': -7.40544, 'gX': -0.139792, 'gY': 0.251625, 'gZ': 0.712938, 'mX': 75.508545, 'mY': -139.452911, 'mZ': -1032.035278})
+2022-06-02 15:50:59,769 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 50, 59, 768840), raw={'aX': 5.7684, 'aY': -1.67352, 'aZ': -7.40544, 'gX': -0.139792, 'gY': 0.251625, 'gZ': 0.712938, 'mX': 75.508545, 'mY': -139.452911, 'mZ': -1032.035278})
+2022-06-02 15:50:59,926 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 50, 59, 926749), raw={'aX': 5.7684, 'aY': -1.67352, 'aZ': -7.40544, 'gX': -0.139792, 'gY': 0.251625, 'gZ': 0.712938, 'mX': 75.508545, 'mY': -139.452911, 'mZ': -1032.035278})
+2022-06-02 15:51:00,091 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 0, 91658), raw={'aX': 5.7684, 'aY': -1.67352, 'aZ': -7.40544, 'gX': -0.139792, 'gY': 0.251625, 'gZ': 0.712938, 'mX': 75.508545, 'mY': -139.452911, 'mZ': -1032.035278})
+2022-06-02 15:51:00,249 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 0, 248568), raw={'aX': 5.6316, 'aY': -1.71, 'aZ': -7.58784, 'gX': 0.712938, 'gY': -0.223667, 'gZ': -0.279583, 'mX': 77.276894, 'mY': -137.501282, 'mZ': -1030.66748})
+2022-06-02 15:51:00,405 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 0, 405984), raw={'aX': 5.6316, 'aY': -1.71, 'aZ': -7.58784, 'gX': 0.712938, 'gY': -0.223667, 'gZ': -0.279583, 'mX': 77.276894, 'mY': -137.501282, 'mZ': -1030.66748})
+2022-06-02 15:51:00,570 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 0, 570889), raw={'aX': 5.6316, 'aY': -1.71, 'aZ': -7.58784, 'gX': 0.712938, 'gY': -0.223667, 'gZ': -0.279583, 'mX': 77.276894, 'mY': -137.501282, 'mZ': -1030.66748})
+2022-06-02 15:51:00,728 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 0, 728799), raw={'aX': 5.6316, 'aY': -1.71, 'aZ': -7.58784, 'gX': 0.712938, 'gY': -0.223667, 'gZ': -0.279583, 'mX': 77.276894, 'mY': -137.501282, 'mZ': -1030.66748})
+2022-06-02 15:51:00,730 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:00,731 | DEBUG - Learner - Received message Message(sender='Serial', receiver='Learner', subject='serialData', message=<src.classes.KnnData object at 0x000002ABE52F11E0>)
+2022-06-02 15:51:00,893 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 0, 893705), raw={'aX': 5.6316, 'aY': -1.71, 'aZ': -7.58784, 'gX': 0.712938, 'gY': -0.223667, 'gZ': -0.279583, 'mX': 77.276894, 'mY': -137.501282, 'mZ': -1030.66748})
+2022-06-02 15:51:00,906 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:01,051 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 1, 51659), raw={'aX': 5.6316, 'aY': -1.71, 'aZ': -7.58784, 'gX': 0.712938, 'gY': -0.223667, 'gZ': -0.279583, 'mX': 77.276894, 'mY': -137.501282, 'mZ': -1030.66748})
+2022-06-02 15:51:01,051 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:01,208 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 1, 208568), raw={'aX': 5.79576, 'aY': -1.7328, 'aZ': -7.56504, 'gX': 0.3355, 'gY': -0.013979, 'gZ': 0.111833, 'mX': 77.10006, 'mY': -137.678696, 'mZ': -1031.18042})
+2022-06-02 15:51:01,209 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:01,373 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 1, 373979), raw={'aX': 5.79576, 'aY': -1.7328, 'aZ': -7.56504, 'gX': 0.3355, 'gY': -0.013979, 'gZ': 0.111833, 'mX': 77.10006, 'mY': -137.678696, 'mZ': -1031.18042})
+2022-06-02 15:51:01,374 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:01,538 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 1, 538523), raw={'aX': 5.79576, 'aY': -1.7328, 'aZ': -7.56504, 'gX': 0.3355, 'gY': -0.013979, 'gZ': 0.111833, 'mX': 77.10006, 'mY': -137.678696, 'mZ': -1031.18042})
+2022-06-02 15:51:01,539 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:01,688 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 1, 688943), raw={'aX': 5.79576, 'aY': -1.7328, 'aZ': -7.56504, 'gX': 0.3355, 'gY': -0.013979, 'gZ': 0.111833, 'mX': 77.10006, 'mY': -137.678696, 'mZ': -1031.18042})
+2022-06-02 15:51:01,688 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:01,847 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 1, 846035), raw={'aX': 5.79576, 'aY': -1.7328, 'aZ': -7.56504, 'gX': 0.3355, 'gY': -0.013979, 'gZ': 0.111833, 'mX': 77.10006, 'mY': -137.678696, 'mZ': -1031.18042})
+2022-06-02 15:51:01,849 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:02,011 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 2, 11489), raw={'aX': 5.79576, 'aY': -1.7328, 'aZ': -7.56504, 'gX': 0.3355, 'gY': -0.013979, 'gZ': 0.111833, 'mX': 77.10006, 'mY': -137.678696, 'mZ': -1031.18042})
+2022-06-02 15:51:02,014 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:02,177 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 2, 176048), raw={'aX': 5.79576, 'aY': -1.7328, 'aZ': -7.56504, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.139792, 'mX': 76.039047, 'mY': -139.630325, 'mZ': -1031.693359})
+2022-06-02 15:51:02,193 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:02,333 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 2, 333957), raw={'aX': 5.75928, 'aY': -1.78296, 'aZ': -7.45104, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.139792, 'mX': 76.039047, 'mY': -139.630325, 'mZ': -1031.693359})
+2022-06-02 15:51:02,334 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:02,491 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 2, 490868), raw={'aX': 5.75928, 'aY': -1.78296, 'aZ': -7.45104, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.139792, 'mX': 76.039047, 'mY': -139.630325, 'mZ': -1031.693359})
+2022-06-02 15:51:02,491 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:02,649 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 2, 648778), raw={'aX': 5.75928, 'aY': -1.78296, 'aZ': -7.45104, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.139792, 'mX': 76.039047, 'mY': -139.630325, 'mZ': -1031.693359})
+2022-06-02 15:51:02,654 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:02,821 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 2, 820832), raw={'aX': 5.75928, 'aY': -1.78296, 'aZ': -7.45104, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.139792, 'mX': 76.039047, 'mY': -139.630325, 'mZ': -1031.693359})
+2022-06-02 15:51:02,822 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:02,979 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 2, 978744), raw={'aX': 5.75928, 'aY': -1.78296, 'aZ': -7.45104, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.139792, 'mX': 76.039047, 'mY': -139.630325, 'mZ': -1031.693359})
+2022-06-02 15:51:02,979 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:03,128 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 3, 128797), raw={'aX': 5.75928, 'aY': -1.78296, 'aZ': -7.45104, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.139792, 'mX': 76.569557, 'mY': -138.388382, 'mZ': -1031.35144})
+2022-06-02 15:51:03,129 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:03,293 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 3, 293702), raw={'aX': 5.72736, 'aY': -1.75104, 'aZ': -7.46016, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 76.569557, 'mY': -138.388382, 'mZ': -1031.35144})
+2022-06-02 15:51:03,294 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:03,421 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 3, 420630), raw={'aX': 5.72736, 'aY': -1.75104, 'aZ': -7.46016, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 76.569557, 'mY': -138.388382, 'mZ': -1031.35144})
+2022-06-02 15:51:03,426 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:03,579 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 3, 579048), raw={'aX': 5.72736, 'aY': -1.75104, 'aZ': -7.46016, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 76.569557, 'mY': -138.388382, 'mZ': -1031.35144})
+2022-06-02 15:51:03,599 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:03,729 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 3, 728482), raw={'aX': 5.72736, 'aY': -1.75104, 'aZ': -7.46016, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 76.569557, 'mY': -138.388382, 'mZ': -1031.35144})
+2022-06-02 15:51:03,730 | DEBUG - Serial - Sending message to Learner
+2022-06-02 15:51:03,886 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 15, 51, 3, 886392), raw={'aX': 5.72736, 'aY': -1.75104, 'aZ': -7.46016, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 76.569557, 'mY': -138.388382, 'mZ': -1031.35144})
+2022-06-02 15:51:03,887 | DEBUG - Serial - Sending message to Learner

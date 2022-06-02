@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 
 
 def formatInflux(dataClass):
@@ -21,3 +22,11 @@ def toCapital(string):
     for i in range(len(strpts)):
         strpts[i] = strpts[i].capitalize()
     return " ".join(strpts)
+
+
+def orderData(data):
+    order = os.getenv("CSSE4011-YZ-SERIAL-FILTERS")
+    ndata = []
+    for i in order.split(","):
+        ndata.append(data[i])
+    return ndata

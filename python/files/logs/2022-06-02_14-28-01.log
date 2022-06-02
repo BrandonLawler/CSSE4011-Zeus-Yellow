@@ -1,0 +1,838 @@
+2022-06-02 14:28:05,310 | INFO - Serial - Serial Process Starting
+2022-06-02 14:28:05,411 | INFO - Influx - Influx Process Starting
+2022-06-02 14:28:05,519 | INFO - Application - App Process Starting
+2022-06-02 14:28:06,122 | INFO - Learner - KNN Process Started
+2022-06-02 14:28:06,140 | DEBUG - Learner - Sending message to Application
+2022-06-02 14:28:06,177 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-06-02 14:28:06,192 | DEBUG - Application - Registering classifier: 0
+2022-06-02 14:28:06,212 | DEBUG - Application - Registering classifier: 1
+2022-06-02 14:28:06,221 | DEBUG - Application - Registering classifier: 2
+2022-06-02 14:28:06,225 | DEBUG - Application - Registering classifier: 3
+2022-06-02 14:28:07,085 | DEBUG - Application - Sending message to Serial
+2022-06-02 14:28:07,088 | DEBUG - Application - Sending message to Serial
+2022-06-02 14:28:07,089 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-06-02 14:28:07,093 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-06-02 14:28:07,973 | DEBUG - Application - Sending message to Serial
+2022-06-02 14:28:07,975 | DEBUG - Application - Sending message to Serial
+2022-06-02 14:28:07,975 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-06-02 14:28:07,976 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='start', message='')
+2022-06-02 14:28:07,978 | INFO - Serial - Serial Connected on Port: COM4
+2022-06-02 14:28:07,978 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:07,981 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='serialConnect', message='')
+2022-06-02 14:28:08,057 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 8, 57648), raw={'aX': 0.05472, 'aY': 1.87872, 'aZ': -9.466559, 'gX': 0.321521, 'gY': -0.013979, 'gZ': 0.139792, 'mX': 92.307869, 'mY': -182.033951, 'mZ': -1025.538086})
+2022-06-02 14:28:08,216 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 8, 216063), raw={'aX': 0.05472, 'aY': 1.87872, 'aZ': -9.466559, 'gX': 0.321521, 'gY': -0.013979, 'gZ': 0.139792, 'mX': 92.307869, 'mY': -182.033951, 'mZ': -1025.538086})
+2022-06-02 14:28:08,373 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 8, 372383), raw={'aX': 0.05472, 'aY': 1.87872, 'aZ': -9.466559, 'gX': 0.321521, 'gY': -0.013979, 'gZ': 0.139792, 'mX': 92.307869, 'mY': -182.033951, 'mZ': -1025.538086})
+2022-06-02 14:28:08,530 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 8, 530112), raw={'aX': 0.05472, 'aY': 1.87872, 'aZ': -9.466559, 'gX': 0.321521, 'gY': -0.013979, 'gZ': 0.139792, 'mX': 92.307869, 'mY': -182.033951, 'mZ': -1025.538086})
+2022-06-02 14:28:08,703 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 8, 702013), raw={'aX': 0.05472, 'aY': 1.87872, 'aZ': -9.466559, 'gX': 0.321521, 'gY': -0.041938, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:08,852 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 8, 852927), raw={'aX': 0.0228, 'aY': 1.81032, 'aZ': -9.439199, 'gX': 0.321521, 'gY': -0.041938, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:09,009 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 9, 9837), raw={'aX': 0.0228, 'aY': 1.81032, 'aZ': -9.439199, 'gX': 0.321521, 'gY': -0.041938, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:09,175 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 9, 175099), raw={'aX': 0.0228, 'aY': 1.81032, 'aZ': -9.439199, 'gX': 0.321521, 'gY': -0.041938, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:09,340 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 9, 339510), raw={'aX': 0.0228, 'aY': 1.81032, 'aZ': -9.439199, 'gX': 0.321521, 'gY': -0.041938, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:09,505 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 9, 504581), raw={'aX': 0.0228, 'aY': 1.81032, 'aZ': -9.439199, 'gX': 0.321521, 'gY': -0.041938, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:09,507 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:09,522 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A2BAF0>)
+2022-06-02 14:28:09,662 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 9, 662500), raw={'aX': 0.0228, 'aY': 1.81032, 'aZ': -9.439199, 'gX': 0.405396, 'gY': -0.069896, 'gZ': 0.363458, 'mX': 90.362686, 'mY': -181.501694, 'mZ': -1026.392944})
+2022-06-02 14:28:09,663 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:09,669 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A2BA00>)
+2022-06-02 14:28:09,813 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 9, 812286), raw={'aX': -0.01824, 'aY': 1.90152, 'aZ': -9.448319, 'gX': 0.405396, 'gY': -0.069896, 'gZ': 0.363458, 'mX': 90.362686, 'mY': -181.501694, 'mZ': -1026.392944})
+2022-06-02 14:28:09,816 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:09,816 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A2BBB0>)
+2022-06-02 14:28:09,970 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 9, 970195), raw={'aX': -0.01824, 'aY': 1.90152, 'aZ': -9.448319, 'gX': 0.405396, 'gY': -0.069896, 'gZ': 0.363458, 'mX': 90.362686, 'mY': -181.501694, 'mZ': -1026.392944})
+2022-06-02 14:28:09,971 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:09,972 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A34940>)
+2022-06-02 14:28:10,135 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 10, 135091), raw={'aX': -0.01824, 'aY': 1.90152, 'aZ': -9.448319, 'gX': 0.405396, 'gY': -0.069896, 'gZ': 0.363458, 'mX': 90.362686, 'mY': -181.501694, 'mZ': -1026.392944})
+2022-06-02 14:28:10,137 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:10,138 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A34F40>)
+2022-06-02 14:28:10,294 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 10, 293011), raw={'aX': -0.01824, 'aY': 1.90152, 'aZ': -9.448319, 'gX': 0.405396, 'gY': -0.069896, 'gZ': 0.363458, 'mX': 90.362686, 'mY': -181.501694, 'mZ': -1026.392944})
+2022-06-02 14:28:10,299 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:10,304 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A35540>)
+2022-06-02 14:28:10,450 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 10, 450426), raw={'aX': -0.01824, 'aY': 1.90152, 'aZ': -9.448319, 'gX': 0.405396, 'gY': -0.069896, 'gZ': 0.363458, 'mX': 90.362686, 'mY': -181.501694, 'mZ': -1026.392944})
+2022-06-02 14:28:10,462 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:10,462 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A35B40>)
+2022-06-02 14:28:10,615 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 10, 615332), raw={'aX': -0.01824, 'aY': 1.90152, 'aZ': -9.448319, 'gX': 0.405396, 'gY': -0.069896, 'gZ': 0.363458, 'mX': 90.362686, 'mY': -181.501694, 'mZ': -1026.392944})
+2022-06-02 14:28:10,618 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:10,619 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A36140>)
+2022-06-02 14:28:10,788 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 10, 787233), raw={'aX': 0.114, 'aY': 1.94256, 'aZ': -9.48024, 'gX': 0.307542, 'gY': -0.083875, 'gZ': 0.069896, 'mX': 90.716354, 'mY': -180.969421, 'mZ': -1024.512207})
+2022-06-02 14:28:10,790 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:10,791 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A36740>)
+2022-06-02 14:28:10,960 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 10, 959639), raw={'aX': 0.114, 'aY': 1.94256, 'aZ': -9.48024, 'gX': 0.307542, 'gY': -0.083875, 'gZ': 0.069896, 'mX': 90.716354, 'mY': -180.969421, 'mZ': -1024.512207})
+2022-06-02 14:28:10,961 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:10,962 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A36D40>)
+2022-06-02 14:28:11,125 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 11, 124548), raw={'aX': 0.114, 'aY': 1.94256, 'aZ': -9.48024, 'gX': 0.307542, 'gY': -0.083875, 'gZ': 0.069896, 'mX': 90.716354, 'mY': -180.969421, 'mZ': -1024.512207})
+2022-06-02 14:28:11,125 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:11,128 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A37340>)
+2022-06-02 14:28:11,289 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 11, 289958), raw={'aX': 0.114, 'aY': 1.94256, 'aZ': -9.48024, 'gX': 0.307542, 'gY': -0.083875, 'gZ': 0.069896, 'mX': 90.716354, 'mY': -180.969421, 'mZ': -1024.512207})
+2022-06-02 14:28:11,294 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:11,295 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A37940>)
+2022-06-02 14:28:11,454 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 11, 454864), raw={'aX': 0.114, 'aY': 1.94256, 'aZ': -9.48024, 'gX': 0.307542, 'gY': -0.083875, 'gZ': 0.069896, 'mX': 90.716354, 'mY': -180.969421, 'mZ': -1024.512207})
+2022-06-02 14:28:11,457 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:11,459 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A37F40>)
+2022-06-02 14:28:11,612 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 11, 612788), raw={'aX': 0.114, 'aY': 1.94256, 'aZ': -9.48024, 'gX': 0.307542, 'gY': -0.083875, 'gZ': 0.069896, 'mX': 90.716354, 'mY': -180.969421, 'mZ': -1024.512207})
+2022-06-02 14:28:11,617 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:11,622 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A37E80>)
+2022-06-02 14:28:11,771 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 11, 770203), raw={'aX': 0.05928, 'aY': 1.8696, 'aZ': -9.475679, 'gX': 0.363458, 'gY': -0.069896, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.09848, 'mZ': -1023.315369})
+2022-06-02 14:28:11,772 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:11,773 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A48B80>)
+2022-06-02 14:28:11,943 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 11, 942118), raw={'aX': 0.05928, 'aY': 1.8696, 'aZ': -9.475679, 'gX': 0.363458, 'gY': -0.069896, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.09848, 'mZ': -1023.315369})
+2022-06-02 14:28:11,945 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:11,945 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A49180>)
+2022-06-02 14:28:12,093 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 12, 92035), raw={'aX': 0.05928, 'aY': 1.8696, 'aZ': -9.475679, 'gX': 0.363458, 'gY': -0.069896, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.09848, 'mZ': -1023.315369})
+2022-06-02 14:28:12,094 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:12,097 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A49780>)
+2022-06-02 14:28:12,250 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 12, 250451), raw={'aX': 0.05928, 'aY': 1.8696, 'aZ': -9.475679, 'gX': 0.363458, 'gY': -0.069896, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.09848, 'mZ': -1023.315369})
+2022-06-02 14:28:12,252 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:12,252 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A49D80>)
+2022-06-02 14:28:12,423 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 12, 422440), raw={'aX': 0.05928, 'aY': 1.8696, 'aZ': -9.475679, 'gX': 0.363458, 'gY': -0.069896, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.09848, 'mZ': -1023.315369})
+2022-06-02 14:28:12,443 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:12,480 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A4A380>)
+2022-06-02 14:28:12,573 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 12, 572354), raw={'aX': 0.05928, 'aY': 1.8696, 'aZ': -9.475679, 'gX': 0.363458, 'gY': -0.069896, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -183.09848, 'mZ': -1023.315369})
+2022-06-02 14:28:12,574 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:12,580 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A4A980>)
+2022-06-02 14:28:12,738 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 12, 738259), raw={'aX': 0.00912, 'aY': 1.87416, 'aZ': -9.439199, 'gX': 0.3355, 'gY': -0.027958, 'gZ': 0.16775, 'mX': 91.954201, 'mY': -182.211365, 'mZ': -1025.367065})
+2022-06-02 14:28:12,769 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:12,780 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A4AF80>)
+2022-06-02 14:28:12,895 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 12, 895128), raw={'aX': 0.00912, 'aY': 1.87416, 'aZ': -9.439199, 'gX': 0.3355, 'gY': -0.027958, 'gZ': 0.16775, 'mX': 91.954201, 'mY': -182.211365, 'mZ': -1025.367065})
+2022-06-02 14:28:12,896 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:12,902 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A4B580>)
+2022-06-02 14:28:13,052 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 13, 51762), raw={'aX': 0.00912, 'aY': 1.87416, 'aZ': -9.439199, 'gX': 0.3355, 'gY': -0.027958, 'gZ': 0.16775, 'mX': 91.954201, 'mY': -182.211365, 'mZ': -1025.367065})
+2022-06-02 14:28:13,052 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:13,054 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A4BB80>)
+2022-06-02 14:28:13,224 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 13, 224965), raw={'aX': 0.00912, 'aY': 1.87416, 'aZ': -9.439199, 'gX': 0.3355, 'gY': -0.027958, 'gZ': 0.16775, 'mX': 91.954201, 'mY': -182.211365, 'mZ': -1025.367065})
+2022-06-02 14:28:13,227 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:13,227 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A4BE80>)
+2022-06-02 14:28:13,383 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 13, 382827), raw={'aX': 0.00912, 'aY': 1.87416, 'aZ': -9.439199, 'gX': 0.3355, 'gY': -0.027958, 'gZ': 0.16775, 'mX': 91.954201, 'mY': -182.211365, 'mZ': -1025.367065})
+2022-06-02 14:28:13,401 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:13,405 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A647C0>)
+2022-06-02 14:28:13,533 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 13, 532246), raw={'aX': 0.00912, 'aY': 1.87416, 'aZ': -9.439199, 'gX': 0.3355, 'gY': -0.027958, 'gZ': 0.16775, 'mX': 91.954201, 'mY': -182.211365, 'mZ': -1025.367065})
+2022-06-02 14:28:13,541 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:13,544 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A653C0>)
+2022-06-02 14:28:13,690 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 13, 690367), raw={'aX': 0.00912, 'aY': 1.87416, 'aZ': -9.439199, 'gX': 0.139792, 'gY': 0.754875, 'gZ': -0.195708, 'mX': 91.600533, 'mY': -181.856522, 'mZ': -1023.828308})
+2022-06-02 14:28:13,690 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:13,693 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A64A00>)
+2022-06-02 14:28:13,855 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 13, 855273), raw={'aX': 0.0228, 'aY': 1.65072, 'aZ': -9.65352, 'gX': 0.139792, 'gY': 0.754875, 'gZ': -0.195708, 'mX': 91.600533, 'mY': -181.856522, 'mZ': -1023.828308})
+2022-06-02 14:28:13,885 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:13,894 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A659C0>)
+2022-06-02 14:28:14,072 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 14, 72673), raw={'aX': 0.0228, 'aY': 1.65072, 'aZ': -9.65352, 'gX': 0.139792, 'gY': 0.754875, 'gZ': -0.195708, 'mX': 91.600533, 'mY': -181.856522, 'mZ': -1023.828308})
+2022-06-02 14:28:14,073 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:14,076 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A65FC0>)
+2022-06-02 14:28:14,237 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 14, 237579), raw={'aX': 0.0228, 'aY': 1.65072, 'aZ': -9.65352, 'gX': 0.139792, 'gY': 0.754875, 'gZ': -0.195708, 'mX': 91.600533, 'mY': -181.856522, 'mZ': -1023.828308})
+2022-06-02 14:28:14,241 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:14,242 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A665C0>)
+2022-06-02 14:28:14,410 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 14, 409483), raw={'aX': 0.0228, 'aY': 1.65072, 'aZ': -9.65352, 'gX': 0.139792, 'gY': 0.754875, 'gZ': -0.195708, 'mX': 91.600533, 'mY': -181.856522, 'mZ': -1023.828308})
+2022-06-02 14:28:14,411 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:14,412 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A66BC0>)
+2022-06-02 14:28:14,642 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 14, 642614), raw={'aX': 0.0228, 'aY': 1.65072, 'aZ': -9.65352, 'gX': 0.139792, 'gY': 0.754875, 'gZ': -0.195708, 'mX': 91.600533, 'mY': -181.856522, 'mZ': -1023.828308})
+2022-06-02 14:28:14,646 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:14,647 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A671C0>)
+2022-06-02 14:28:14,815 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 14, 815020), raw={'aX': 0.05928, 'aY': 1.76016, 'aZ': -9.462, 'gX': 0.447333, 'gY': -0.139792, 'gZ': 0.279583, 'mX': 90.53952, 'mY': -182.033951, 'mZ': -1071.531738})
+2022-06-02 14:28:14,819 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:14,820 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A677C0>)
+2022-06-02 14:28:14,972 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 14, 971940), raw={'aX': 0.05928, 'aY': 1.76016, 'aZ': -9.462, 'gX': 0.447333, 'gY': -0.139792, 'gZ': 0.279583, 'mX': 90.53952, 'mY': -182.033951, 'mZ': -1071.531738})
+2022-06-02 14:28:15,005 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:15,025 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A67DC0>)
+2022-06-02 14:28:15,129 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 15, 129850), raw={'aX': 0.05928, 'aY': 1.76016, 'aZ': -9.462, 'gX': 0.447333, 'gY': -0.139792, 'gZ': 0.279583, 'mX': 90.53952, 'mY': -182.033951, 'mZ': -1071.531738})
+2022-06-02 14:28:15,132 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:15,132 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A67D00>)
+2022-06-02 14:28:15,295 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 15, 294355), raw={'aX': 0.05928, 'aY': 1.76016, 'aZ': -9.462, 'gX': 0.447333, 'gY': -0.139792, 'gZ': 0.279583, 'mX': 90.53952, 'mY': -182.033951, 'mZ': -1071.531738})
+2022-06-02 14:28:15,296 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:15,297 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7CA00>)
+2022-06-02 14:28:15,452 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 15, 452264), raw={'aX': 0.05928, 'aY': 1.76016, 'aZ': -9.462, 'gX': 0.447333, 'gY': -0.139792, 'gZ': 0.279583, 'mX': 90.53952, 'mY': -182.033951, 'mZ': -1071.531738})
+2022-06-02 14:28:15,454 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:15,455 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7D000>)
+2022-06-02 14:28:15,678 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 15, 677135), raw={'aX': 0.05928, 'aY': 1.76016, 'aZ': -9.462, 'gX': 0.447333, 'gY': -0.139792, 'gZ': 0.279583, 'mX': 90.009018, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:15,680 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:15,680 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7D600>)
+2022-06-02 14:28:15,850 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 15, 849542), raw={'aX': -0.0912, 'aY': 1.78296, 'aZ': -9.62616, 'gX': -0.125813, 'gY': 0.237646, 'gZ': -0.069896, 'mX': 90.009018, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:15,861 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:15,867 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7DC00>)
+2022-06-02 14:28:16,022 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 16, 22443), raw={'aX': -0.0912, 'aY': 1.78296, 'aZ': -9.62616, 'gX': -0.125813, 'gY': 0.237646, 'gZ': -0.069896, 'mX': 90.009018, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:16,036 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:16,106 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7E200>)
+2022-06-02 14:28:16,172 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 16, 172193), raw={'aX': -0.0912, 'aY': 1.78296, 'aZ': -9.62616, 'gX': -0.125813, 'gY': 0.237646, 'gZ': -0.069896, 'mX': 90.009018, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:16,176 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:16,176 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7E800>)
+2022-06-02 14:28:16,337 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 16, 337375), raw={'aX': -0.0912, 'aY': 1.78296, 'aZ': -9.62616, 'gX': -0.125813, 'gY': 0.237646, 'gZ': -0.069896, 'mX': 90.009018, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:16,340 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:16,341 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7EE00>)
+2022-06-02 14:28:16,495 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 16, 495285), raw={'aX': -0.0912, 'aY': 1.78296, 'aZ': -9.62616, 'gX': -0.125813, 'gY': 0.237646, 'gZ': -0.069896, 'mX': 90.009018, 'mY': -183.453323, 'mZ': -1024.854126})
+2022-06-02 14:28:16,497 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:16,499 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7F400>)
+2022-06-02 14:28:16,660 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 16, 660190), raw={'aX': -0.0912, 'aY': 1.78296, 'aZ': -9.62616, 'gX': -0.125813, 'gY': 0.237646, 'gZ': -0.069896, 'mX': 93.192047, 'mY': -182.743637, 'mZ': -1025.709106})
+2022-06-02 14:28:16,660 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:16,662 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7FA00>)
+2022-06-02 14:28:16,817 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 16, 817100), raw={'aX': 0.05472, 'aY': 2.01552, 'aZ': -9.28416, 'gX': 0.475292, 'gY': 0.237646, 'gZ': -0.349479, 'mX': 93.192047, 'mY': -182.743637, 'mZ': -1025.709106})
+2022-06-02 14:28:16,818 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:16,820 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A7FD00>)
+2022-06-02 14:28:16,983 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 16, 982006), raw={'aX': 0.05472, 'aY': 2.01552, 'aZ': -9.28416, 'gX': 0.475292, 'gY': 0.237646, 'gZ': -0.349479, 'mX': 93.192047, 'mY': -182.743637, 'mZ': -1025.709106})
+2022-06-02 14:28:16,983 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:16,985 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A98640>)
+2022-06-02 14:28:17,132 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 17, 131920), raw={'aX': 0.05472, 'aY': 2.01552, 'aZ': -9.28416, 'gX': 0.475292, 'gY': 0.237646, 'gZ': -0.349479, 'mX': 93.192047, 'mY': -182.743637, 'mZ': -1025.709106})
+2022-06-02 14:28:17,138 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:17,148 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A98C40>)
+2022-06-02 14:28:17,289 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 17, 289830), raw={'aX': 0.05472, 'aY': 2.01552, 'aZ': -9.28416, 'gX': 0.475292, 'gY': 0.237646, 'gZ': -0.349479, 'mX': 93.192047, 'mY': -182.743637, 'mZ': -1025.709106})
+2022-06-02 14:28:17,290 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:17,292 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A99240>)
+2022-06-02 14:28:17,454 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 17, 454735), raw={'aX': 0.05472, 'aY': 2.01552, 'aZ': -9.28416, 'gX': 0.475292, 'gY': 0.237646, 'gZ': -0.349479, 'mX': 93.192047, 'mY': -182.743637, 'mZ': -1025.709106})
+2022-06-02 14:28:17,457 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:17,457 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A99840>)
+2022-06-02 14:28:17,612 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 17, 612219), raw={'aX': 0.05472, 'aY': 2.01552, 'aZ': -9.28416, 'gX': 0.475292, 'gY': 0.237646, 'gZ': -0.349479, 'mX': 93.192047, 'mY': -182.743637, 'mZ': -1025.709106})
+2022-06-02 14:28:17,637 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:17,645 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A99E40>)
+2022-06-02 14:28:17,778 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 17, 777125), raw={'aX': -0.20976, 'aY': 1.94256, 'aZ': -9.48936, 'gX': 0.517229, 'gY': -0.349479, 'gZ': 0.153771, 'mX': 92.661537, 'mY': -185.759796, 'mZ': -1024.341187})
+2022-06-02 14:28:17,784 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:17,784 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A9A440>)
+2022-06-02 14:28:17,934 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 17, 934940), raw={'aX': -0.20976, 'aY': 1.94256, 'aZ': -9.48936, 'gX': 0.517229, 'gY': -0.349479, 'gZ': 0.153771, 'mX': 92.661537, 'mY': -185.759796, 'mZ': -1024.341187})
+2022-06-02 14:28:17,936 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:17,937 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A9AA40>)
+2022-06-02 14:28:18,099 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 18, 99992), raw={'aX': -0.20976, 'aY': 1.94256, 'aZ': -9.48936, 'gX': 0.517229, 'gY': -0.349479, 'gZ': 0.153771, 'mX': 92.661537, 'mY': -185.759796, 'mZ': -1024.341187})
+2022-06-02 14:28:18,102 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:18,102 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A9B040>)
+2022-06-02 14:28:18,257 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 18, 257408), raw={'aX': -0.20976, 'aY': 1.94256, 'aZ': -9.48936, 'gX': 0.517229, 'gY': -0.349479, 'gZ': 0.153771, 'mX': 92.661537, 'mY': -185.759796, 'mZ': -1024.341187})
+2022-06-02 14:28:18,265 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:18,271 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A9B640>)
+2022-06-02 14:28:18,415 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 18, 414317), raw={'aX': -0.20976, 'aY': 1.94256, 'aZ': -9.48936, 'gX': 0.517229, 'gY': -0.349479, 'gZ': 0.153771, 'mX': 92.661537, 'mY': -185.759796, 'mZ': -1024.341187})
+2022-06-02 14:28:18,416 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:18,418 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A9BC40>)
+2022-06-02 14:28:18,580 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 18, 580223), raw={'aX': -0.20976, 'aY': 1.94256, 'aZ': -9.48936, 'gX': 0.517229, 'gY': -0.349479, 'gZ': 0.153771, 'mX': 92.661537, 'mY': -185.759796, 'mZ': -1024.341187})
+2022-06-02 14:28:18,580 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:18,583 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A9BF40>)
+2022-06-02 14:28:18,738 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 18, 737146), raw={'aX': 0.01824, 'aY': 1.9836, 'aZ': -9.316079, 'gX': 0.489271, 'gY': -0.139792, 'gZ': 0.125813, 'mX': 91.600533, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:18,741 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:18,777 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB4880>)
+2022-06-02 14:28:18,895 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 18, 894561), raw={'aX': 0.01824, 'aY': 1.9836, 'aZ': -9.316079, 'gX': 0.489271, 'gY': -0.139792, 'gZ': 0.125813, 'mX': 91.600533, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:18,900 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:18,901 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB4E80>)
+2022-06-02 14:28:19,052 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 19, 51975), raw={'aX': 0.01824, 'aY': 1.9836, 'aZ': -9.316079, 'gX': 0.489271, 'gY': -0.139792, 'gZ': 0.125813, 'mX': 91.600533, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:19,052 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:19,054 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB5480>)
+2022-06-02 14:28:19,210 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 19, 209362), raw={'aX': 0.01824, 'aY': 1.9836, 'aZ': -9.316079, 'gX': 0.489271, 'gY': -0.139792, 'gZ': 0.125813, 'mX': 91.600533, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:19,221 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:19,229 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB5A80>)
+2022-06-02 14:28:19,375 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 19, 375267), raw={'aX': 0.01824, 'aY': 1.9836, 'aZ': -9.316079, 'gX': 0.489271, 'gY': -0.139792, 'gZ': 0.125813, 'mX': 91.600533, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:19,375 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:19,377 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB6080>)
+2022-06-02 14:28:19,533 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 19, 533177), raw={'aX': 0.01824, 'aY': 1.9836, 'aZ': -9.316079, 'gX': 0.489271, 'gY': -0.139792, 'gZ': 0.125813, 'mX': 91.600533, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:19,534 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:19,536 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB6680>)
+2022-06-02 14:28:19,690 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 19, 690087), raw={'aX': 0.01824, 'aY': 1.9836, 'aZ': -9.316079, 'gX': 0.307542, 'gY': 0.125813, 'gZ': 0.251625, 'mX': 91.777367, 'mY': -184.162994, 'mZ': -1024.341187})
+2022-06-02 14:28:19,694 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:19,696 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB6C80>)
+2022-06-02 14:28:19,854 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 19, 854992), raw={'aX': -0.16416, 'aY': 2.00184, 'aZ': -9.566879, 'gX': 0.307542, 'gY': 0.125813, 'gZ': 0.251625, 'mX': 91.777367, 'mY': -184.162994, 'mZ': -1024.341187})
+2022-06-02 14:28:19,855 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:19,857 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB7280>)
+2022-06-02 14:28:20,012 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 20, 12407), raw={'aX': -0.16416, 'aY': 2.00184, 'aZ': -9.566879, 'gX': 0.307542, 'gY': 0.125813, 'gZ': 0.251625, 'mX': 91.777367, 'mY': -184.162994, 'mZ': -1024.341187})
+2022-06-02 14:28:20,013 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:20,016 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB7880>)
+2022-06-02 14:28:20,170 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 20, 170129), raw={'aX': -0.16416, 'aY': 2.00184, 'aZ': -9.566879, 'gX': 0.307542, 'gY': 0.125813, 'gZ': 0.251625, 'mX': 91.777367, 'mY': -184.162994, 'mZ': -1024.341187})
+2022-06-02 14:28:20,170 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:20,172 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AB7E80>)
+2022-06-02 14:28:20,335 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 20, 334039), raw={'aX': -0.16416, 'aY': 2.00184, 'aZ': -9.566879, 'gX': 0.307542, 'gY': 0.125813, 'gZ': 0.251625, 'mX': 91.777367, 'mY': -184.162994, 'mZ': -1024.341187})
+2022-06-02 14:28:20,335 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:20,337 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5A9BB80>)
+2022-06-02 14:28:20,492 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 20, 492958), raw={'aX': -0.16416, 'aY': 2.00184, 'aZ': -9.566879, 'gX': 0.307542, 'gY': 0.125813, 'gZ': 0.251625, 'mX': 91.777367, 'mY': -184.162994, 'mZ': -1024.341187})
+2022-06-02 14:28:20,493 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:20,495 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACCAC0>)
+2022-06-02 14:28:20,650 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 20, 650375), raw={'aX': -0.16416, 'aY': 2.00184, 'aZ': -9.566879, 'gX': 0.307542, 'gY': 0.125813, 'gZ': 0.251625, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:20,652 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:20,653 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACD0C0>)
+2022-06-02 14:28:20,815 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 20, 814290), raw={'aX': -0.16872, 'aY': 1.9152, 'aZ': -9.448319, 'gX': 0.363458, 'gY': -0.055917, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:20,816 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:20,817 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACD6C0>)
+2022-06-02 14:28:20,980 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 20, 980125), raw={'aX': -0.16872, 'aY': 1.9152, 'aZ': -9.448319, 'gX': 0.363458, 'gY': -0.055917, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:20,985 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:21,003 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACDCC0>)
+2022-06-02 14:28:21,167 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 21, 167018), raw={'aX': -0.16872, 'aY': 1.9152, 'aZ': -9.448319, 'gX': 0.363458, 'gY': -0.055917, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:21,183 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:21,191 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACE2C0>)
+2022-06-02 14:28:21,332 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 21, 332428), raw={'aX': -0.16872, 'aY': 1.9152, 'aZ': -9.448319, 'gX': 0.363458, 'gY': -0.055917, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:21,334 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:21,342 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACE8C0>)
+2022-06-02 14:28:21,489 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 21, 489843), raw={'aX': -0.16872, 'aY': 1.9152, 'aZ': -9.448319, 'gX': 0.363458, 'gY': -0.055917, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:21,491 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:21,493 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACEEC0>)
+2022-06-02 14:28:21,654 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 21, 654751), raw={'aX': -0.16872, 'aY': 1.9152, 'aZ': -9.448319, 'gX': 0.363458, 'gY': -0.055917, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:21,667 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:21,683 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACF4C0>)
+2022-06-02 14:28:21,812 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 21, 812168), raw={'aX': -0.21888, 'aY': 1.88328, 'aZ': -9.539519, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.125813, 'mX': 93.192047, 'mY': -184.340424, 'mZ': -1024.854126})
+2022-06-02 14:28:21,814 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:21,816 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACFAC0>)
+2022-06-02 14:28:21,977 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 21, 977084), raw={'aX': -0.21888, 'aY': 1.88328, 'aZ': -9.539519, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.125813, 'mX': 93.192047, 'mY': -184.340424, 'mZ': -1024.854126})
+2022-06-02 14:28:21,981 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:21,983 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACFA00>)
+2022-06-02 14:28:22,134 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 22, 134993), raw={'aX': -0.21888, 'aY': 1.88328, 'aZ': -9.539519, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.125813, 'mX': 93.192047, 'mY': -184.340424, 'mZ': -1024.854126})
+2022-06-02 14:28:22,135 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:22,136 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AE8700>)
+2022-06-02 14:28:22,292 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 22, 292635), raw={'aX': -0.21888, 'aY': 1.88328, 'aZ': -9.539519, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.125813, 'mX': 93.192047, 'mY': -184.340424, 'mZ': -1024.854126})
+2022-06-02 14:28:22,292 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:22,294 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AE8D00>)
+2022-06-02 14:28:22,457 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 22, 456648), raw={'aX': -0.21888, 'aY': 1.88328, 'aZ': -9.539519, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.125813, 'mX': 93.192047, 'mY': -184.340424, 'mZ': -1024.854126})
+2022-06-02 14:28:22,458 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:22,460 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AE9300>)
+2022-06-02 14:28:22,615 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 22, 615454), raw={'aX': -0.21888, 'aY': 1.88328, 'aZ': -9.539519, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.125813, 'mX': 93.192047, 'mY': -184.340424, 'mZ': -1024.854126})
+2022-06-02 14:28:22,616 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:22,618 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AE9900>)
+2022-06-02 14:28:22,772 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 22, 772113), raw={'aX': -0.1824, 'aY': 1.95168, 'aZ': -9.53496, 'gX': 0.321521, 'gY': 0.041938, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -184.517838, 'mZ': -1024.683228})
+2022-06-02 14:28:22,778 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:22,788 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AE9F00>)
+2022-06-02 14:28:22,929 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 22, 929528), raw={'aX': -0.1824, 'aY': 1.95168, 'aZ': -9.53496, 'gX': 0.321521, 'gY': 0.041938, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -184.517838, 'mZ': -1024.683228})
+2022-06-02 14:28:22,934 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:22,935 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AEA500>)
+2022-06-02 14:28:23,102 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 23, 102602), raw={'aX': -0.1824, 'aY': 1.95168, 'aZ': -9.53496, 'gX': 0.321521, 'gY': 0.041938, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -184.517838, 'mZ': -1024.683228})
+2022-06-02 14:28:23,103 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:23,105 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AEAB00>)
+2022-06-02 14:28:23,252 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 23, 252199), raw={'aX': -0.1824, 'aY': 1.95168, 'aZ': -9.53496, 'gX': 0.321521, 'gY': 0.041938, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -184.517838, 'mZ': -1024.683228})
+2022-06-02 14:28:23,253 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:23,254 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AEB100>)
+2022-06-02 14:28:23,410 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 23, 410236), raw={'aX': -0.1824, 'aY': 1.95168, 'aZ': -9.53496, 'gX': 0.321521, 'gY': 0.041938, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -184.517838, 'mZ': -1024.683228})
+2022-06-02 14:28:23,411 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:23,412 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AEB700>)
+2022-06-02 14:28:23,575 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 23, 574370), raw={'aX': -0.1824, 'aY': 1.95168, 'aZ': -9.53496, 'gX': 0.321521, 'gY': 0.041938, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -184.517838, 'mZ': -1024.683228})
+2022-06-02 14:28:23,575 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:23,577 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AEBD00>)
+2022-06-02 14:28:23,733 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 23, 732280), raw={'aX': -0.228, 'aY': 1.91976, 'aZ': -9.448319, 'gX': 0.3355, 'gY': 0.083875, 'gZ': 0.153771, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:23,741 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:23,751 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5AEBC40>)
+2022-06-02 14:28:23,897 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 23, 897184), raw={'aX': -0.228, 'aY': 1.91976, 'aZ': -9.448319, 'gX': 0.3355, 'gY': 0.083875, 'gZ': 0.153771, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:23,899 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:23,902 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6520940>)
+2022-06-02 14:28:24,062 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 24, 62090), raw={'aX': -0.228, 'aY': 1.91976, 'aZ': -9.448319, 'gX': 0.3355, 'gY': 0.083875, 'gZ': 0.153771, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:24,063 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:24,065 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6520F40>)
+2022-06-02 14:28:24,212 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 24, 212114), raw={'aX': -0.228, 'aY': 1.91976, 'aZ': -9.448319, 'gX': 0.3355, 'gY': 0.083875, 'gZ': 0.153771, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:24,214 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:24,216 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6521540>)
+2022-06-02 14:28:24,370 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 24, 370035), raw={'aX': -0.228, 'aY': 1.91976, 'aZ': -9.448319, 'gX': 0.3355, 'gY': 0.083875, 'gZ': 0.153771, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:24,376 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:24,392 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6521B40>)
+2022-06-02 14:28:24,534 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 24, 534948), raw={'aX': -0.228, 'aY': 1.91976, 'aZ': -9.448319, 'gX': 0.3355, 'gY': 0.083875, 'gZ': 0.153771, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1024.170288})
+2022-06-02 14:28:24,534 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:24,536 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6522140>)
+2022-06-02 14:28:24,692 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 24, 691744), raw={'aX': -0.228, 'aY': 1.91976, 'aZ': -9.448319, 'gX': 0.363458, 'gY': 0.041938, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -183.275894, 'mZ': -1024.683228})
+2022-06-02 14:28:24,693 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:24,695 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6522740>)
+2022-06-02 14:28:24,857 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 24, 857154), raw={'aX': -0.11856, 'aY': 1.8924, 'aZ': -9.430079, 'gX': 0.363458, 'gY': 0.041938, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -183.275894, 'mZ': -1024.683228})
+2022-06-02 14:28:24,864 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:24,867 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6522D40>)
+2022-06-02 14:28:25,015 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 25, 14163), raw={'aX': -0.11856, 'aY': 1.8924, 'aZ': -9.430079, 'gX': 0.363458, 'gY': 0.041938, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -183.275894, 'mZ': -1024.683228})
+2022-06-02 14:28:25,020 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:25,036 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6523340>)
+2022-06-02 14:28:25,180 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 25, 179079), raw={'aX': -0.11856, 'aY': 1.8924, 'aZ': -9.430079, 'gX': 0.363458, 'gY': 0.041938, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -183.275894, 'mZ': -1024.683228})
+2022-06-02 14:28:25,183 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:25,184 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6523940>)
+2022-06-02 14:28:25,344 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 25, 344984), raw={'aX': -0.11856, 'aY': 1.8924, 'aZ': -9.430079, 'gX': 0.363458, 'gY': 0.041938, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -183.275894, 'mZ': -1024.683228})
+2022-06-02 14:28:25,346 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:25,350 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6523F40>)
+2022-06-02 14:28:25,546 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 25, 546871), raw={'aX': -0.11856, 'aY': 1.8924, 'aZ': -9.430079, 'gX': 0.363458, 'gY': 0.041938, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -183.275894, 'mZ': -1024.683228})
+2022-06-02 14:28:25,557 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:25,578 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A5ACFDC0>)
+2022-06-02 14:28:25,720 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 25, 719278), raw={'aX': -0.11856, 'aY': 1.8924, 'aZ': -9.430079, 'gX': 0.363458, 'gY': 0.041938, 'gZ': 0.153771, 'mX': 91.423698, 'mY': -184.517838, 'mZ': -1024.341187})
+2022-06-02 14:28:25,730 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:25,752 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6538B80>)
+2022-06-02 14:28:25,884 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 25, 884698), raw={'aX': -0.16872, 'aY': 1.8696, 'aZ': -9.36624, 'gX': 0.363458, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 91.423698, 'mY': -184.517838, 'mZ': -1024.341187})
+2022-06-02 14:28:25,885 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:25,888 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6539180>)
+2022-06-02 14:28:26,050 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 26, 50109), raw={'aX': -0.16872, 'aY': 1.8696, 'aZ': -9.36624, 'gX': 0.363458, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 91.423698, 'mY': -184.517838, 'mZ': -1024.341187})
+2022-06-02 14:28:26,051 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:26,053 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6539780>)
+2022-06-02 14:28:26,215 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 26, 215014), raw={'aX': -0.16872, 'aY': 1.8696, 'aZ': -9.36624, 'gX': 0.363458, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 91.423698, 'mY': -184.517838, 'mZ': -1024.341187})
+2022-06-02 14:28:26,234 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:26,259 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6539D80>)
+2022-06-02 14:28:26,371 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 26, 371959), raw={'aX': -0.16872, 'aY': 1.8696, 'aZ': -9.36624, 'gX': 0.363458, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 91.423698, 'mY': -184.517838, 'mZ': -1024.341187})
+2022-06-02 14:28:26,375 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:26,380 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A653A380>)
+2022-06-02 14:28:26,499 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 26, 499738), raw={'aX': -0.16872, 'aY': 1.8696, 'aZ': -9.36624, 'gX': 0.363458, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 91.423698, 'mY': -184.517838, 'mZ': -1024.341187})
+2022-06-02 14:28:26,501 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:26,502 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A653A980>)
+2022-06-02 14:28:26,657 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 26, 657153), raw={'aX': -0.16872, 'aY': 1.8696, 'aZ': -9.36624, 'gX': 0.363458, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.185852, 'mY': -183.630737, 'mZ': -1023.999268})
+2022-06-02 14:28:26,658 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:26,660 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A653AF80>)
+2022-06-02 14:28:26,822 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 26, 821571), raw={'aX': -0.06384, 'aY': 1.95624, 'aZ': -9.35712, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 90.185852, 'mY': -183.630737, 'mZ': -1023.999268})
+2022-06-02 14:28:26,823 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:26,826 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A653B580>)
+2022-06-02 14:28:26,972 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 26, 972484), raw={'aX': -0.06384, 'aY': 1.95624, 'aZ': -9.35712, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 90.185852, 'mY': -183.630737, 'mZ': -1023.999268})
+2022-06-02 14:28:26,972 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:26,974 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A653BB80>)
+2022-06-02 14:28:27,129 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 27, 129394), raw={'aX': -0.06384, 'aY': 1.95624, 'aZ': -9.35712, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 90.185852, 'mY': -183.630737, 'mZ': -1023.999268})
+2022-06-02 14:28:27,133 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:27,138 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A653BAC0>)
+2022-06-02 14:28:27,294 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 27, 294804), raw={'aX': -0.06384, 'aY': 1.95624, 'aZ': -9.35712, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 90.185852, 'mY': -183.630737, 'mZ': -1023.999268})
+2022-06-02 14:28:27,299 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:27,308 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65547C0>)
+2022-06-02 14:28:27,452 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 27, 452219), raw={'aX': -0.06384, 'aY': 1.95624, 'aZ': -9.35712, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 90.185852, 'mY': -183.630737, 'mZ': -1023.999268})
+2022-06-02 14:28:27,452 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:27,454 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6554DC0>)
+2022-06-02 14:28:27,610 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 27, 609139), raw={'aX': -0.06384, 'aY': 1.95624, 'aZ': -9.35712, 'gX': 0.321521, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 90.185852, 'mY': -183.630737, 'mZ': -1023.999268})
+2022-06-02 14:28:27,610 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:27,612 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65553C0>)
+2022-06-02 14:28:27,775 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 27, 775043), raw={'aX': -0.13224, 'aY': 1.91064, 'aZ': -9.430079, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.16775, 'mX': 90.362686, 'mY': -183.808167, 'mZ': -1024.512207})
+2022-06-02 14:28:27,784 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:27,785 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65559C0>)
+2022-06-02 14:28:27,939 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 27, 938965), raw={'aX': -0.13224, 'aY': 1.91064, 'aZ': -9.430079, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.16775, 'mX': 90.362686, 'mY': -183.808167, 'mZ': -1024.512207})
+2022-06-02 14:28:27,942 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:27,943 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6555FC0>)
+2022-06-02 14:28:28,097 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 28, 96606), raw={'aX': -0.13224, 'aY': 1.91064, 'aZ': -9.430079, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.16775, 'mX': 90.362686, 'mY': -183.808167, 'mZ': -1024.512207})
+2022-06-02 14:28:28,100 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:28,101 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65565C0>)
+2022-06-02 14:28:28,254 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 28, 254516), raw={'aX': -0.13224, 'aY': 1.91064, 'aZ': -9.430079, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.16775, 'mX': 90.362686, 'mY': -183.808167, 'mZ': -1024.512207})
+2022-06-02 14:28:28,256 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:28,257 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6556BC0>)
+2022-06-02 14:28:28,412 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 28, 411586), raw={'aX': -0.13224, 'aY': 1.91064, 'aZ': -9.430079, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.16775, 'mX': 90.362686, 'mY': -183.808167, 'mZ': -1024.512207})
+2022-06-02 14:28:28,422 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:28,463 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65571C0>)
+2022-06-02 14:28:28,571 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 28, 570503), raw={'aX': -0.13224, 'aY': 1.91064, 'aZ': -9.430079, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.16775, 'mX': 90.362686, 'mY': -183.808167, 'mZ': -1024.512207})
+2022-06-02 14:28:28,573 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:28,573 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65577C0>)
+2022-06-02 14:28:28,735 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 28, 734907), raw={'aX': -0.21888, 'aY': 1.90608, 'aZ': -9.60792, 'gX': 0.279583, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:28,738 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:28,771 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6557DC0>)
+2022-06-02 14:28:28,892 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 28, 891817), raw={'aX': -0.21888, 'aY': 1.90608, 'aZ': -9.60792, 'gX': 0.279583, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:28,893 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:28,910 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6557D00>)
+2022-06-02 14:28:29,057 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 29, 56723), raw={'aX': -0.21888, 'aY': 1.90608, 'aZ': -9.60792, 'gX': 0.279583, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:29,059 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:29,060 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656CA00>)
+2022-06-02 14:28:29,214 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 29, 214739), raw={'aX': -0.21888, 'aY': 1.90608, 'aZ': -9.60792, 'gX': 0.279583, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:29,216 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:29,219 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656D000>)
+2022-06-02 14:28:29,372 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 29, 372154), raw={'aX': -0.21888, 'aY': 1.90608, 'aZ': -9.60792, 'gX': 0.279583, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:29,374 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:29,375 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656D600>)
+2022-06-02 14:28:29,530 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 29, 529064), raw={'aX': -0.21888, 'aY': 1.90608, 'aZ': -9.60792, 'gX': 0.279583, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:29,531 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:29,548 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656DC00>)
+2022-06-02 14:28:29,694 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 29, 694969), raw={'aX': -0.21888, 'aY': 1.90608, 'aZ': -9.60792, 'gX': 0.293563, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 92.484703, 'mY': -183.09848, 'mZ': -1024.854126})
+2022-06-02 14:28:29,694 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:29,696 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656E200>)
+2022-06-02 14:28:29,852 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 29, 851385), raw={'aX': -0.0912, 'aY': 1.82856, 'aZ': -9.448319, 'gX': 0.293563, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 92.484703, 'mY': -183.09848, 'mZ': -1024.854126})
+2022-06-02 14:28:29,852 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:29,855 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656E800>)
+2022-06-02 14:28:30,009 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 30, 9304), raw={'aX': -0.0912, 'aY': 1.82856, 'aZ': -9.448319, 'gX': 0.293563, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 92.484703, 'mY': -183.09848, 'mZ': -1024.854126})
+2022-06-02 14:28:30,016 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:30,034 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656EE00>)
+2022-06-02 14:28:30,175 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 30, 174164), raw={'aX': -0.0912, 'aY': 1.82856, 'aZ': -9.448319, 'gX': 0.293563, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 92.484703, 'mY': -183.09848, 'mZ': -1024.854126})
+2022-06-02 14:28:30,175 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:30,177 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656F400>)
+2022-06-02 14:28:30,332 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 30, 332074), raw={'aX': -0.0912, 'aY': 1.82856, 'aZ': -9.448319, 'gX': 0.293563, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 92.484703, 'mY': -183.09848, 'mZ': -1024.854126})
+2022-06-02 14:28:30,333 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:30,335 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656FA00>)
+2022-06-02 14:28:30,496 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 30, 496983), raw={'aX': -0.0912, 'aY': 1.82856, 'aZ': -9.448319, 'gX': 0.293563, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 92.484703, 'mY': -183.09848, 'mZ': -1024.854126})
+2022-06-02 14:28:30,501 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:30,503 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A656FD00>)
+2022-06-02 14:28:30,654 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 30, 654868), raw={'aX': -0.0912, 'aY': 1.82856, 'aZ': -9.448319, 'gX': 0.293563, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 92.484703, 'mY': -183.09848, 'mZ': -1024.854126})
+2022-06-02 14:28:30,656 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:30,680 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6584640>)
+2022-06-02 14:28:30,812 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 30, 812347), raw={'aX': -0.07752, 'aY': 2.13408, 'aZ': -9.316079, 'gX': 0.153771, 'gY': -0.013979, 'gZ': 0.321521, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1025.367065})
+2022-06-02 14:28:30,812 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:30,814 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6585240>)
+2022-06-02 14:28:30,969 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 30, 969257), raw={'aX': -0.07752, 'aY': 2.13408, 'aZ': -9.316079, 'gX': 0.153771, 'gY': -0.013979, 'gZ': 0.321521, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1025.367065})
+2022-06-02 14:28:30,970 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:30,974 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6584880>)
+2022-06-02 14:28:31,135 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 31, 134163), raw={'aX': -0.07752, 'aY': 2.13408, 'aZ': -9.316079, 'gX': 0.153771, 'gY': -0.013979, 'gZ': 0.321521, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1025.367065})
+2022-06-02 14:28:31,136 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:31,138 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6585840>)
+2022-06-02 14:28:31,292 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 31, 291577), raw={'aX': -0.07752, 'aY': 2.13408, 'aZ': -9.316079, 'gX': 0.153771, 'gY': -0.013979, 'gZ': 0.321521, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1025.367065})
+2022-06-02 14:28:31,296 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:31,302 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6585E40>)
+2022-06-02 14:28:31,449 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 31, 449487), raw={'aX': -0.07752, 'aY': 2.13408, 'aZ': -9.316079, 'gX': 0.153771, 'gY': -0.013979, 'gZ': 0.321521, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1025.367065})
+2022-06-02 14:28:31,451 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:31,452 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6586440>)
+2022-06-02 14:28:31,615 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 31, 614613), raw={'aX': -0.07752, 'aY': 2.13408, 'aZ': -9.316079, 'gX': 0.153771, 'gY': -0.013979, 'gZ': 0.321521, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1025.367065})
+2022-06-02 14:28:31,617 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:31,617 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6586A40>)
+2022-06-02 14:28:31,779 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 31, 779530), raw={'aX': -0.14136, 'aY': 1.86504, 'aZ': -9.49848, 'gX': 0.307542, 'gY': -0.069896, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -183.630737, 'mZ': -1023.144348})
+2022-06-02 14:28:31,782 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:31,783 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6587040>)
+2022-06-02 14:28:31,997 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 31, 997336), raw={'aX': -0.14136, 'aY': 1.86504, 'aZ': -9.49848, 'gX': 0.307542, 'gY': -0.069896, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -183.630737, 'mZ': -1023.144348})
+2022-06-02 14:28:32,004 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:32,008 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6587640>)
+2022-06-02 14:28:32,177 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 32, 177232), raw={'aX': -0.14136, 'aY': 1.86504, 'aZ': -9.49848, 'gX': 0.307542, 'gY': -0.069896, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -183.630737, 'mZ': -1023.144348})
+2022-06-02 14:28:32,177 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:32,179 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6587C40>)
+2022-06-02 14:28:32,394 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 32, 394354), raw={'aX': -0.14136, 'aY': 1.86504, 'aZ': -9.49848, 'gX': 0.307542, 'gY': -0.069896, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -183.630737, 'mZ': -1023.144348})
+2022-06-02 14:28:32,395 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:32,397 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6587F40>)
+2022-06-02 14:28:32,566 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 32, 566760), raw={'aX': -0.14136, 'aY': 1.86504, 'aZ': -9.49848, 'gX': 0.307542, 'gY': -0.069896, 'gZ': 0.16775, 'mX': 90.53952, 'mY': -183.630737, 'mZ': -1023.144348})
+2022-06-02 14:28:32,567 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:32,569 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A0880>)
+2022-06-02 14:28:32,732 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 32, 732180), raw={'aX': -0.14136, 'aY': 1.86504, 'aZ': -9.49848, 'gX': 0.377438, 'gY': 0.153771, 'gZ': 0.0, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1023.828308})
+2022-06-02 14:28:32,754 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:32,762 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A0E80>)
+2022-06-02 14:28:32,889 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 32, 888896), raw={'aX': -0.10488, 'aY': 1.90152, 'aZ': -9.279599, 'gX': 0.377438, 'gY': 0.153771, 'gZ': 0.0, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1023.828308})
+2022-06-02 14:28:32,889 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:32,891 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A1480>)
+2022-06-02 14:28:33,107 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 33, 107277), raw={'aX': -0.10488, 'aY': 1.90152, 'aZ': -9.279599, 'gX': 0.377438, 'gY': 0.153771, 'gZ': 0.0, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1023.828308})
+2022-06-02 14:28:33,107 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:33,109 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A1A80>)
+2022-06-02 14:28:33,280 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 33, 279007), raw={'aX': -0.10488, 'aY': 1.90152, 'aZ': -9.279599, 'gX': 0.377438, 'gY': 0.153771, 'gZ': 0.0, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1023.828308})
+2022-06-02 14:28:33,281 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:33,284 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A2080>)
+2022-06-02 14:28:33,520 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 33, 519125), raw={'aX': -0.10488, 'aY': 1.90152, 'aZ': -9.279599, 'gX': 0.377438, 'gY': 0.153771, 'gZ': 0.0, 'mX': 91.954201, 'mY': -183.808167, 'mZ': -1023.828308})
+2022-06-02 14:28:33,522 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:33,522 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A2680>)
+2022-06-02 14:28:33,685 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 33, 685041), raw={'aX': -0.10488, 'aY': 1.90152, 'aZ': -9.279599, 'gX': 0.377438, 'gY': 0.153771, 'gZ': 0.0, 'mX': 92.484703, 'mY': -183.808167, 'mZ': -1022.973389})
+2022-06-02 14:28:33,685 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:33,687 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A2C80>)
+2022-06-02 14:28:33,856 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 33, 856945), raw={'aX': -0.26904, 'aY': 1.8924, 'aZ': -9.411839, 'gX': 0.307542, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.484703, 'mY': -183.808167, 'mZ': -1022.973389})
+2022-06-02 14:28:33,857 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:33,859 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A3280>)
+2022-06-02 14:28:34,014 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 34, 14443), raw={'aX': -0.26904, 'aY': 1.8924, 'aZ': -9.411839, 'gX': 0.307542, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.484703, 'mY': -183.808167, 'mZ': -1022.973389})
+2022-06-02 14:28:34,019 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:34,019 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A3880>)
+2022-06-02 14:28:34,171 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 34, 171875), raw={'aX': -0.26904, 'aY': 1.8924, 'aZ': -9.411839, 'gX': 0.307542, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.484703, 'mY': -183.808167, 'mZ': -1022.973389})
+2022-06-02 14:28:34,199 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:34,205 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65A3E80>)
+2022-06-02 14:28:34,336 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 34, 336780), raw={'aX': -0.26904, 'aY': 1.8924, 'aZ': -9.411839, 'gX': 0.307542, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.484703, 'mY': -183.808167, 'mZ': -1022.973389})
+2022-06-02 14:28:34,337 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:34,339 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6587B80>)
+2022-06-02 14:28:34,495 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 34, 494033), raw={'aX': -0.26904, 'aY': 1.8924, 'aZ': -9.411839, 'gX': 0.307542, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.484703, 'mY': -183.808167, 'mZ': -1022.973389})
+2022-06-02 14:28:34,510 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:34,513 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65B8AC0>)
+2022-06-02 14:28:34,659 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 34, 659312), raw={'aX': -0.26904, 'aY': 1.8924, 'aZ': -9.411839, 'gX': 0.307542, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.838379, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:34,661 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:34,663 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65B90C0>)
+2022-06-02 14:28:34,877 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 34, 877187), raw={'aX': -0.1824, 'aY': 1.9152, 'aZ': -9.475679, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.838379, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:34,879 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:34,880 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65B96C0>)
+2022-06-02 14:28:35,049 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 35, 49321), raw={'aX': -0.1824, 'aY': 1.9152, 'aZ': -9.475679, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.838379, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:35,066 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:35,074 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65B9CC0>)
+2022-06-02 14:28:35,215 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 35, 215226), raw={'aX': -0.1824, 'aY': 1.9152, 'aZ': -9.475679, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.838379, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:35,230 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:35,237 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65BA2C0>)
+2022-06-02 14:28:35,432 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 35, 432606), raw={'aX': -0.1824, 'aY': 1.9152, 'aZ': -9.475679, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.838379, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:35,434 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:35,434 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65BA8C0>)
+2022-06-02 14:28:35,597 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 35, 597016), raw={'aX': -0.1824, 'aY': 1.9152, 'aZ': -9.475679, 'gX': 0.3355, 'gY': 0.0, 'gZ': 0.139792, 'mX': 92.838379, 'mY': -182.743637, 'mZ': -1024.854126})
+2022-06-02 14:28:35,600 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:35,601 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65BAEC0>)
+2022-06-02 14:28:35,761 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 35, 761922), raw={'aX': -0.12768, 'aY': 1.89696, 'aZ': -9.51672, 'gX': 0.321521, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -186.292053, 'mZ': -1023.315369})
+2022-06-02 14:28:35,766 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:35,767 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65BB4C0>)
+2022-06-02 14:28:35,934 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 35, 934826), raw={'aX': -0.12768, 'aY': 1.89696, 'aZ': -9.51672, 'gX': 0.321521, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -186.292053, 'mZ': -1023.315369})
+2022-06-02 14:28:35,936 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:35,940 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65BBAC0>)
+2022-06-02 14:28:36,099 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 36, 98904), raw={'aX': -0.12768, 'aY': 1.89696, 'aZ': -9.51672, 'gX': 0.321521, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -186.292053, 'mZ': -1023.315369})
+2022-06-02 14:28:36,100 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:36,101 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65BBA00>)
+2022-06-02 14:28:36,257 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 36, 257013), raw={'aX': -0.12768, 'aY': 1.89696, 'aZ': -9.51672, 'gX': 0.321521, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -186.292053, 'mZ': -1023.315369})
+2022-06-02 14:28:36,258 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:36,261 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D0700>)
+2022-06-02 14:28:36,422 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 36, 421367), raw={'aX': -0.12768, 'aY': 1.89696, 'aZ': -9.51672, 'gX': 0.321521, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -186.292053, 'mZ': -1023.315369})
+2022-06-02 14:28:36,422 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:36,424 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D0D00>)
+2022-06-02 14:28:36,572 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 36, 571281), raw={'aX': -0.12768, 'aY': 1.89696, 'aZ': -9.51672, 'gX': 0.321521, 'gY': 0.013979, 'gZ': 0.139792, 'mX': 90.362686, 'mY': -186.292053, 'mZ': -1023.315369})
+2022-06-02 14:28:36,572 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:36,574 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D1300>)
+2022-06-02 14:28:36,737 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 36, 737190), raw={'aX': -0.12768, 'aY': 1.89696, 'aZ': -9.51672, 'gX': 0.307542, 'gY': -0.013979, 'gZ': 0.153771, 'mX': 90.716354, 'mY': -181.856522, 'mZ': -1024.512207})
+2022-06-02 14:28:36,746 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:36,751 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D1900>)
+2022-06-02 14:28:36,894 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 36, 894112), raw={'aX': -0.10944, 'aY': 1.94256, 'aZ': -9.2568, 'gX': 0.307542, 'gY': -0.013979, 'gZ': 0.153771, 'mX': 90.716354, 'mY': -181.856522, 'mZ': -1024.512207})
+2022-06-02 14:28:36,897 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:36,898 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D1F00>)
+2022-06-02 14:28:37,052 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 37, 52028), raw={'aX': -0.10944, 'aY': 1.94256, 'aZ': -9.2568, 'gX': 0.307542, 'gY': -0.013979, 'gZ': 0.153771, 'mX': 90.716354, 'mY': -181.856522, 'mZ': -1024.512207})
+2022-06-02 14:28:37,052 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:37,056 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D2500>)
+2022-06-02 14:28:37,209 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 37, 208938), raw={'aX': -0.10944, 'aY': 1.94256, 'aZ': -9.2568, 'gX': 0.307542, 'gY': -0.013979, 'gZ': 0.153771, 'mX': 90.716354, 'mY': -181.856522, 'mZ': -1024.512207})
+2022-06-02 14:28:37,211 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:37,213 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D2B00>)
+2022-06-02 14:28:37,374 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 37, 374507), raw={'aX': -0.10944, 'aY': 1.94256, 'aZ': -9.2568, 'gX': 0.307542, 'gY': -0.013979, 'gZ': 0.153771, 'mX': 90.716354, 'mY': -181.856522, 'mZ': -1024.512207})
+2022-06-02 14:28:37,374 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:37,376 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D3100>)
+2022-06-02 14:28:37,532 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 37, 531427), raw={'aX': -0.10944, 'aY': 1.94256, 'aZ': -9.2568, 'gX': 0.307542, 'gY': -0.013979, 'gZ': 0.153771, 'mX': 90.716354, 'mY': -181.856522, 'mZ': -1024.512207})
+2022-06-02 14:28:37,538 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:37,539 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D3700>)
+2022-06-02 14:28:37,704 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 37, 704328), raw={'aX': -0.10944, 'aY': 1.94256, 'aZ': -9.2568, 'gX': 0.307542, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 91.777367, 'mY': -184.517838, 'mZ': -1021.60553})
+2022-06-02 14:28:37,706 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:37,708 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D3D00>)
+2022-06-02 14:28:37,862 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 37, 861238), raw={'aX': -0.17328, 'aY': 1.9608, 'aZ': -9.36168, 'gX': 0.307542, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 91.777367, 'mY': -184.517838, 'mZ': -1021.60553})
+2022-06-02 14:28:37,871 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:37,873 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65D3C40>)
+2022-06-02 14:28:38,019 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 38, 19159), raw={'aX': -0.17328, 'aY': 1.9608, 'aZ': -9.36168, 'gX': 0.307542, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 91.777367, 'mY': -184.517838, 'mZ': -1021.60553})
+2022-06-02 14:28:38,020 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:38,023 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EC940>)
+2022-06-02 14:28:38,244 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 38, 244113), raw={'aX': -0.17328, 'aY': 1.9608, 'aZ': -9.36168, 'gX': 0.307542, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 91.777367, 'mY': -184.517838, 'mZ': -1021.60553})
+2022-06-02 14:28:38,247 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:38,247 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65ECF40>)
+2022-06-02 14:28:38,424 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 38, 424374), raw={'aX': -0.17328, 'aY': 1.9608, 'aZ': -9.36168, 'gX': 0.307542, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 91.777367, 'mY': -184.517838, 'mZ': -1021.60553})
+2022-06-02 14:28:38,425 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:38,427 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65ED540>)
+2022-06-02 14:28:38,582 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 38, 582789), raw={'aX': -0.17328, 'aY': 1.9608, 'aZ': -9.36168, 'gX': 0.307542, 'gY': -0.027958, 'gZ': 0.153771, 'mX': 91.777367, 'mY': -184.517838, 'mZ': -1021.60553})
+2022-06-02 14:28:38,593 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:38,600 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EDB40>)
+2022-06-02 14:28:38,732 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 38, 731704), raw={'aX': -0.26904, 'aY': 1.9152, 'aZ': -9.45288, 'gX': 0.349479, 'gY': 0.013979, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -182.388794, 'mZ': -1022.118469})
+2022-06-02 14:28:38,751 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:38,760 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EE140>)
+2022-06-02 14:28:38,957 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 38, 956954), raw={'aX': -0.26904, 'aY': 1.9152, 'aZ': -9.45288, 'gX': 0.349479, 'gY': 0.013979, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -182.388794, 'mZ': -1022.118469})
+2022-06-02 14:28:38,957 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:38,959 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EE740>)
+2022-06-02 14:28:39,137 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 39, 137058), raw={'aX': -0.26904, 'aY': 1.9152, 'aZ': -9.45288, 'gX': 0.349479, 'gY': 0.013979, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -182.388794, 'mZ': -1022.118469})
+2022-06-02 14:28:39,138 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:39,140 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EED40>)
+2022-06-02 14:28:39,347 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 39, 347099), raw={'aX': -0.26904, 'aY': 1.9152, 'aZ': -9.45288, 'gX': 0.349479, 'gY': 0.013979, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -182.388794, 'mZ': -1022.118469})
+2022-06-02 14:28:39,348 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:39,352 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EF340>)
+2022-06-02 14:28:39,519 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 39, 519014), raw={'aX': -0.26904, 'aY': 1.9152, 'aZ': -9.45288, 'gX': 0.349479, 'gY': 0.013979, 'gZ': 0.153771, 'mX': 91.070023, 'mY': -182.388794, 'mZ': -1022.118469})
+2022-06-02 14:28:39,520 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:39,521 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EF940>)
+2022-06-02 14:28:39,699 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 39, 699910), raw={'aX': -0.26904, 'aY': 1.9152, 'aZ': -9.45288, 'gX': 0.349479, 'gY': 0.013979, 'gZ': 0.153771, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1023.315369})
+2022-06-02 14:28:39,700 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:39,702 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EFF40>)
+2022-06-02 14:28:39,864 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 39, 864321), raw={'aX': -0.2052, 'aY': 1.96536, 'aZ': -9.503039, 'gX': 0.307542, 'gY': 0.069896, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1023.315369})
+2022-06-02 14:28:39,870 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:39,888 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A65EFE80>)
+2022-06-02 14:28:40,067 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 40, 67710), raw={'aX': -0.2052, 'aY': 1.96536, 'aZ': -9.503039, 'gX': 0.307542, 'gY': 0.069896, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1023.315369})
+2022-06-02 14:28:40,067 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:40,069 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6600B80>)
+2022-06-02 14:28:40,239 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 40, 239116), raw={'aX': -0.2052, 'aY': 1.96536, 'aZ': -9.503039, 'gX': 0.307542, 'gY': 0.069896, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1023.315369})
+2022-06-02 14:28:40,240 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:40,241 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6601180>)
+2022-06-02 14:28:40,404 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 40, 404022), raw={'aX': -0.2052, 'aY': 1.96536, 'aZ': -9.503039, 'gX': 0.307542, 'gY': 0.069896, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1023.315369})
+2022-06-02 14:28:40,405 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:40,407 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6601780>)
+2022-06-02 14:28:40,576 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 40, 576520), raw={'aX': -0.2052, 'aY': 1.96536, 'aZ': -9.503039, 'gX': 0.307542, 'gY': 0.069896, 'gZ': 0.139792, 'mX': 91.600533, 'mY': -182.743637, 'mZ': -1023.315369})
+2022-06-02 14:28:40,577 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:40,580 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6601D80>)
+2022-06-02 14:28:40,741 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 40, 741931), raw={'aX': -0.2052, 'aY': 1.96536, 'aZ': -9.503039, 'gX': 0.321521, 'gY': 0.055917, 'gZ': 0.125813, 'mX': 90.185852, 'mY': -182.921051, 'mZ': -1022.802368})
+2022-06-02 14:28:40,749 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:40,752 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6602380>)
+2022-06-02 14:28:40,891 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 40, 891845), raw={'aX': -0.27816, 'aY': 1.9152, 'aZ': -9.503039, 'gX': 0.321521, 'gY': 0.055917, 'gZ': 0.125813, 'mX': 90.185852, 'mY': -182.921051, 'mZ': -1022.802368})
+2022-06-02 14:28:40,892 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:40,894 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6602980>)
+2022-06-02 14:28:41,050 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 41, 49259), raw={'aX': -0.27816, 'aY': 1.9152, 'aZ': -9.503039, 'gX': 0.321521, 'gY': 0.055917, 'gZ': 0.125813, 'mX': 90.185852, 'mY': -182.921051, 'mZ': -1022.802368})
+2022-06-02 14:28:41,056 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:41,061 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6602F80>)
+2022-06-02 14:28:41,214 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 41, 214175), raw={'aX': -0.27816, 'aY': 1.9152, 'aZ': -9.503039, 'gX': 0.321521, 'gY': 0.055917, 'gZ': 0.125813, 'mX': 90.185852, 'mY': -182.921051, 'mZ': -1022.802368})
+2022-06-02 14:28:41,223 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:41,225 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6603580>)
+2022-06-02 14:28:41,379 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 41, 379104), raw={'aX': -0.27816, 'aY': 1.9152, 'aZ': -9.503039, 'gX': 0.321521, 'gY': 0.055917, 'gZ': 0.125813, 'mX': 90.185852, 'mY': -182.921051, 'mZ': -1022.802368})
+2022-06-02 14:28:41,385 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:41,396 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6603B80>)
+2022-06-02 14:28:41,537 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 41, 537013), raw={'aX': -0.27816, 'aY': 1.9152, 'aZ': -9.503039, 'gX': 0.321521, 'gY': 0.055917, 'gZ': 0.125813, 'mX': 90.185852, 'mY': -182.921051, 'mZ': -1022.802368})
+2022-06-02 14:28:41,586 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:41,590 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6603AC0>)
+2022-06-02 14:28:41,694 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 41, 694429), raw={'aX': -0.27816, 'aY': 1.9152, 'aZ': -9.503039, 'gX': 0.321521, 'gY': 0.097854, 'gZ': 0.153771, 'mX': 92.307869, 'mY': -182.921051, 'mZ': -1025.196167})
+2022-06-02 14:28:41,695 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:41,697 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A66187C0>)
+2022-06-02 14:28:41,852 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 41, 851155), raw={'aX': -0.2508, 'aY': 1.8924, 'aZ': -9.44376, 'gX': 0.321521, 'gY': 0.097854, 'gZ': 0.153771, 'mX': 92.307869, 'mY': -182.921051, 'mZ': -1025.196167})
+2022-06-02 14:28:41,853 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:41,858 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6618DC0>)
+2022-06-02 14:28:42,017 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 42, 17061), raw={'aX': -0.2508, 'aY': 1.8924, 'aZ': -9.44376, 'gX': 0.321521, 'gY': 0.097854, 'gZ': 0.153771, 'mX': 92.307869, 'mY': -182.921051, 'mZ': -1025.196167})
+2022-06-02 14:28:42,023 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:42,024 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A66193C0>)
+2022-06-02 14:28:42,174 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 42, 174480), raw={'aX': -0.2508, 'aY': 1.8924, 'aZ': -9.44376, 'gX': 0.321521, 'gY': 0.097854, 'gZ': 0.153771, 'mX': 92.307869, 'mY': -182.921051, 'mZ': -1025.196167})
+2022-06-02 14:28:42,201 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:42,204 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A66199C0>)
+2022-06-02 14:28:42,332 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 42, 331384), raw={'aX': -0.2508, 'aY': 1.8924, 'aZ': -9.44376, 'gX': 0.321521, 'gY': 0.097854, 'gZ': 0.153771, 'mX': 92.307869, 'mY': -182.921051, 'mZ': -1025.196167})
+2022-06-02 14:28:42,342 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:42,342 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A6619FC0>)
+2022-06-02 14:28:42,489 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 42, 489460), raw={'aX': -0.2508, 'aY': 1.8924, 'aZ': -9.44376, 'gX': 0.321521, 'gY': 0.097854, 'gZ': 0.153771, 'mX': 92.307869, 'mY': -182.921051, 'mZ': -1025.196167})
+2022-06-02 14:28:42,491 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:42,498 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A661A5C0>)
+2022-06-02 14:28:42,507 | DEBUG - Application - Sending message to Serial
+2022-06-02 14:28:42,507 | DEBUG - Application - Sending message to Serial
+2022-06-02 14:28:42,508 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,511 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,513 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,526 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,530 | DEBUG - Influx - Received message Message(sender='Application', receiver='Influx', subject='testData', message=<src.classes.KnnData object at 0x000001D0C1DE1960>)
+2022-06-02 14:28:42,555 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,556 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,560 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,563 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,581 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,590 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,593 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,594 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,596 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,597 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,604 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,605 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,606 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,607 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,611 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,611 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,611 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,612 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,612 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,612 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,612 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,613 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,613 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,613 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,613 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,614 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,618 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,619 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,620 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,623 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,624 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,627 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,628 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,628 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,628 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,628 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,629 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,629 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,629 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,629 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,633 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,644 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,644 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,645 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,645 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,645 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,645 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,645 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,646 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,646 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,654 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,662 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,695 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,705 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,710 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,711 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,711 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,712 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,712 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,713 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,716 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,730 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,731 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,734 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,734 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,738 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,745 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,778 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,786 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,792 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,797 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,805 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,807 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,809 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,814 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,816 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,816 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,818 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,818 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,819 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,819 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,820 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,821 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,821 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,822 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,822 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,822 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,822 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,823 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,825 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,825 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,825 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,826 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,826 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,826 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,889 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,905 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,936 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,939 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,940 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,945 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,945 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,946 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,955 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,955 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,956 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,959 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,960 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,960 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,961 | DEBUG - Serial - Data Recieved - DataRead(timestamp=datetime.datetime(2022, 6, 2, 14, 28, 42, 661375), raw={'aX': -0.2508, 'aY': 1.8924, 'aZ': -9.44376, 'gX': 0.321521, 'gY': 0.097854, 'gZ': 0.153771, 'mX': 92.307869, 'mY': -182.921051, 'mZ': -1025.196167})
+2022-06-02 14:28:42,962 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,962 | DEBUG - Serial - Sending message to Application
+2022-06-02 14:28:42,962 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,965 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-06-02 14:28:42,973 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,973 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=False)
+2022-06-02 14:28:42,974 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,974 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,975 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,976 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,977 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,977 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,977 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,977 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,978 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,978 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,979 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,980 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,991 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,992 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,992 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,992 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,993 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,994 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:42,997 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,005 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,005 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,006 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,006 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,007 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,007 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,007 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,007 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,008 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,008 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,009 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,010 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,013 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,013 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,013 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,013 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,017 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,017 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,017 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,018 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,019 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,020 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,021 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,021 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,021 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,022 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,022 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,022 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,023 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,025 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,025 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,026 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,028 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,030 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,044 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,045 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,047 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,048 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,050 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,051 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,051 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,051 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,052 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,052 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,052 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,056 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,056 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,057 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,057 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,057 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,058 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,064 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,065 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,065 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,066 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,066 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,066 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,067 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,067 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,067 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,067 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,068 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,069 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,069 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,070 | DEBUG - Application - Sending message to Influx
+2022-06-02 14:28:43,071 | DEBUG - Application - Received message Message(sender='Serial', receiver='Application', subject='trainSerialData', message=<src.classes.KnnData object at 0x000001F2A662EF50>)

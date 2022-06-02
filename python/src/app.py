@@ -55,7 +55,7 @@ class App:
 
         self._currentTab = self._ACTIVETAB
         self._currentMode = None
-        self._trainingRequired = os.getenv("CSSE4011-YZ-APP-TRAININGMAX")
+        self._trainingRequired = int(os.getenv("CSSE4011-YZ-APP-TRAININGMAX"))
         self._trainingCurrentTick = 0
         self._trainingData = []
 
@@ -137,8 +137,8 @@ class App:
             updated = True
             self._classifierPrediction = prediction
         if prediction_data is not None:
-            self._activeReadingDisplay.setText(prediction_data)
-            predName = self._classifierDict[self._classifierPrediction]
+            self._activeReadingDisplay.setText(str(prediction_data))
+            predName = self._classifierDict[self._classifierPrediction]["name"]
         elif self._classifierPrediction == self._CONNECT:
             predName = "connected"
             self._activeReadingDisplay.setText("Serial Connection Found")
@@ -146,7 +146,7 @@ class App:
             predName = "disconnected"
             self._activeReadingDisplay.setText("Serial Connection Lost")
         else:
-            predName = self._classifierDict[self._classifierPrediction]
+            predName = self._classifierDict[self._classifierPrediction]["name"]
             self._activeReadingDisplay.setText(predName)
         self._activeModeDisplay.setText(toCapital(predName))
         if updated:
@@ -263,6 +263,7 @@ class App:
         self._trainingBar.setFixedWidth(self._get_width() - 60)
         self._trainFrame.layout().addWidget(self._trainingBar, alignment=Qt.AlignmentFlag.AlignCenter)
         self._trainerText = QLabel("")
+        self._trainerText.setWordWrap(True)
         self._trainFrame.layout().addWidget(self._trainerText, alignment=Qt.AlignmentFlag.AlignCenter)
         self._trainingStartButton = QPushButton("Start Training")
         self._trainingStartButton.clicked.connect(self._training_start)
@@ -372,7 +373,7 @@ class App:
             self._serialPort = pvalue
         
     def _check_training(self):
-        if self._trainingCurrentTick >= os.getenv("CSSE4011-YZ-APP-TRAININGMAX"):
+        if self._trainingCurrentTick >= self._trainingRequired:
             self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), "", "stop")
             self._courier.send(os.getenv("CSSE4011-YZ-CN-SERIAL"), False, "trainMode")
             self._trainingCurrentTick = 0
@@ -382,7 +383,10 @@ class App:
                 self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), item, "testData")
                 self._trainingCurrentTick += 1
                 self._trainingBar.setValue(self._trainingCurrentTick)
+            self._trainerText.setText("Upload Complete - Start Another Training")
             self._currentMode = None
+            self._courier.send(os.getenv("CSSE4011-YZ-CN-LEARNER"), self._trainingData, "trainData")
+            self._trainingData = []
 
     
     def _check_messages(self):
@@ -417,7 +421,7 @@ class App:
                     self._trainingData.append(msg.message)
                     self._trainerText.setText(f"Training Data Recieved: {msg.message}")
                     self._trainingBar.setValue(self._trainingCurrentTick)
-                    self._checkTraining()
+                    self._check_training()
             elif msg.subject == "serialConnect":
                 self._update_display(self._CONNECT)
             elif msg.subject == "serialDisconnect":

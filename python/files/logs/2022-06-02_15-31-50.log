@@ -1,0 +1,12 @@
+2022-06-02 15:31:55,919 | INFO - Influx - Influx Process Starting
+2022-06-02 15:31:56,274 | INFO - Serial - Serial Process Starting
+2022-06-02 15:31:56,834 | INFO - Learner - KNN Process Started
+2022-06-02 15:31:56,860 | DEBUG - Learner - Sending message to Application
+2022-06-02 15:31:56,884 | INFO - Application - App Process Starting
+2022-06-02 15:31:56,906 | DEBUG - Learner - Sending message to Influx
+2022-06-02 15:31:56,940 | DEBUG - Influx - Received message Message(sender='Learner', receiver='Influx', subject='pullTestData', message='')
+2022-06-02 15:31:57,536 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-06-02 15:31:57,546 | DEBUG - Application - Registering classifier: 0
+2022-06-02 15:31:57,550 | DEBUG - Application - Registering classifier: 1
+2022-06-02 15:31:57,550 | DEBUG - Application - Registering classifier: 2
+2022-06-02 15:31:57,550 | DEBUG - Application - Registering classifier: 3

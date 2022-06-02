@@ -1,6 +1,0 @@
-2022-05-28 17:02:16,026 | INFO - Influx - Influx Process Starting
-2022-05-28 17:02:16,091 | INFO - Serial - Serial Process Starting
-2022-05-28 17:02:16,374 | INFO - Application - App Process Starting
-2022-05-28 17:02:22,636 | ERROR - Serial - Unknown Message: Start - 
-2022-05-28 17:02:30,186 | INFO - Application - Shutdown Occured
-2022-05-28 17:02:30,224 | INFO - Shutdown Received

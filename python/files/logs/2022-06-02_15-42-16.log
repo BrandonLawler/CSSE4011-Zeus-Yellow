@@ -1,0 +1,14 @@
+2022-06-02 15:42:21,497 | INFO - Serial - Serial Process Starting
+2022-06-02 15:42:21,529 | INFO - Influx - Influx Process Starting
+2022-06-02 15:42:21,531 | INFO - Learner - KNN Process Started
+2022-06-02 15:42:21,531 | DEBUG - Learner - Sending message to Application
+2022-06-02 15:42:21,533 | DEBUG - Learner - Sending message to Influx
+2022-06-02 15:42:21,564 | DEBUG - Influx - Received message Message(sender='Learner', receiver='Influx', subject='pullTestData', message='')
+2022-06-02 15:42:21,801 | INFO - Application - App Process Starting
+2022-06-02 15:42:22,172 | DEBUG - Influx - Sending message to Learner
+2022-06-02 15:42:22,178 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-06-02 15:42:22,223 | DEBUG - Application - Registering classifier: 0
+2022-06-02 15:42:22,226 | DEBUG - Application - Registering classifier: 1
+2022-06-02 15:42:22,238 | DEBUG - Application - Registering classifier: 2
+2022-06-02 15:42:22,276 | DEBUG - Application - Registering classifier: 3
+2022-06-02 15:42:22,284 | DEBUG - Learner - Received message Message(sender='Influx', receiver='Learner', subject='trainData', message=[<src.classes.KnnData object at 0x0000025ED5E211E0>, <src.classes.KnnData object at 0x0000025ED5E21C30>, <src.classes.KnnData object at 0x0000025ED5E22410>, <src.classes.KnnData object at 0x0000025ED5E22BF0>, <src.classes.KnnData object at 0x0000025ED5E233D0>, <src.classes.KnnData object at 0x0000025ED5E23D00>, <src.classes.KnnData object at 0x0000025ED5E48700>, <src.classes.KnnData object at 0x0000025ED5E490C0>, <src.classes.KnnData object at 0x0000025ED5E49A80>, <src.classes.KnnData object at 0x0000025ED5E4A440>])

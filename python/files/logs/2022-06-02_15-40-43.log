@@ -1,0 +1,18 @@
+2022-06-02 15:40:47,088 | INFO - Influx - Influx Process Starting
+2022-06-02 15:40:47,337 | INFO - Application - App Process Starting
+2022-06-02 15:40:47,445 | INFO - Serial - Serial Process Starting
+2022-06-02 15:40:47,449 | INFO - Learner - KNN Process Started
+2022-06-02 15:40:47,454 | DEBUG - Learner - Sending message to Application
+2022-06-02 15:40:47,461 | DEBUG - Learner - Sending message to Influx
+2022-06-02 15:40:47,464 | DEBUG - Influx - Received message Message(sender='Learner', receiver='Influx', subject='pullTestData', message='')
+2022-06-02 15:40:47,574 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-06-02 15:40:47,577 | DEBUG - Application - Registering classifier: 0
+2022-06-02 15:40:47,605 | DEBUG - Application - Registering classifier: 1
+2022-06-02 15:40:47,605 | DEBUG - Application - Registering classifier: 2
+2022-06-02 15:40:47,606 | DEBUG - Application - Registering classifier: 3
+2022-06-02 15:40:48,226 | DEBUG - Influx - Sending message to Learner
+2022-06-02 15:40:48,235 | DEBUG - Learner - Received message Message(sender='Influx', receiver='Learner', subject='trainData', message=[<src.classes.KnnData object at 0x000001821BC61210>, <src.classes.KnnData object at 0x000001821BC61C30>, <src.classes.KnnData object at 0x000001821BC62410>, <src.classes.KnnData object at 0x000001821BC62BF0>, <src.classes.KnnData object at 0x000001821BC633D0>, <src.classes.KnnData object at 0x000001821BC63D00>, <src.classes.KnnData object at 0x000001821BC84700>, <src.classes.KnnData object at 0x000001821BC850C0>, <src.classes.KnnData object at 0x000001821BC85A80>, <src.classes.KnnData object at 0x000001821BC86440>])
+2022-06-02 15:40:48,835 | DEBUG - Application - Sending message to Serial
+2022-06-02 15:40:48,840 | DEBUG - Application - Sending message to Serial
+2022-06-02 15:40:48,849 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-06-02 15:40:48,861 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)

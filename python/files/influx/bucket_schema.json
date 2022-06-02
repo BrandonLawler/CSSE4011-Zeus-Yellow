@@ -4,112 +4,457 @@
         "type": "timestamp"
     },
     {
-        "name": "rssi1",
+        "name": "aX-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "ultra1",
+        "name": "aY-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi2",
+        "name": "aZ-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "ultra2",
+        "name": "gX-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi3",
+        "name": "gY-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "ultra3",
+        "name": "gZ-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi4",
+        "name": "mX-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "ultra4",
+        "name": "mY-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi5",
+        "name": "mZ-0",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi6",
+        "name": "aX-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi7",
+        "name": "aY-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi8",
+        "name": "aZ-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi9",
+        "name": "gX-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi10",
+        "name": "gY-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi11",
+        "name": "gZ-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "rssi12",
+        "name": "mX-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "accelx",
+        "name": "mY-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "accely",
+        "name": "mZ-1",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "accelz",
+        "name": "aX-2",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "magx",
+        "name": "aY-2",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "magy",
+        "name": "aZ-2",
         "type": "field",
         "dataType": "float"
     },
     {
-        "name": "magz",
+        "name": "gX-2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-2",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aX-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aY-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aZ-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gX-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-3",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aX-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aY-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aZ-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gX-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-4",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aX-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aY-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aZ-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gX-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-5",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aX-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aY-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aZ-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gX-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-6",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aX-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aY-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aZ-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gX-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-7",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aX-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aY-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aZ-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gX-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-8",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aX-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aY-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "aZ-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gX-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gY-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "gZ-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mX-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mY-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "mZ-9",
+        "type": "field",
+        "dataType": "float"
+    },
+    {
+        "name": "prediction",
         "type": "field",
         "dataType": "float"
     }

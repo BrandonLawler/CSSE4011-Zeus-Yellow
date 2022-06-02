@@ -1,7 +1,0 @@
-2022-05-28 21:33:31,861 | INFO - Influx - Influx Process Starting
-2022-05-28 21:33:32,002 | INFO - Learner - KNN Process Started
-2022-05-28 21:33:32,008 | DEBUG - Learner - Sending message to Application
-2022-05-28 21:33:32,122 | INFO - Serial - Serial Process Starting
-2022-05-28 21:33:32,212 | INFO - Application - App Process Starting
-2022-05-28 21:33:46,763 | INFO - Application - Shutdown Occured
-2022-05-28 21:33:46,834 | INFO - Shutdown Received

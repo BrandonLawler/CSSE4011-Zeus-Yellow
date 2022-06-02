@@ -14,6 +14,7 @@ class Core:
         self.log_file = log_file
         self.log_environment = log_environment
         self.environment_json = environment_json
+        self._log_process_event = multiprocessing.Event()
             
 
         self._process_event = multiprocessing.Event()
@@ -23,7 +24,7 @@ class Core:
         self._setup_environment()
 
         self._courier = Courier("Core", self._process_event, multiprocessing.Event())
-        self._log = Log(self._process_event, self.log_level, self.log_folder, self.log_file, self.log_environment)
+        self._log = Log(self._log_process_event, self.log_level, self.log_folder, self.log_file, self.log_environment)
         self._watcher_process = multiprocessing.Process(target=self.watcher)
 
         if self.log_environment is not None and self.environment_json is None:
@@ -54,7 +55,8 @@ class Core:
             "process": process,
             "shutdown": shutdown,
             "courier": courier,
-            "pid": None
+            "pid": None,
+            "isShutdown": False
         }
     
     def update_couriers(self, newCourierId: str, newCourierQueue: multiprocessing.Queue):
@@ -62,13 +64,12 @@ class Core:
             processData["courier"].add_send_queue(newCourierId, newCourierQueue)
     
     def _check_shutdowns(self):
-        shutdowns_occured = self._process_count
         for id, processData in self._processes.items():
-            if processData["shutdown"].is_set():
-                self._log.log_queue.put(LogMessage(id, "Shutdown Received", Log._INFO))
+            if not processData["isShutdown"] and processData["shutdown"].is_set():
+                self._log.log_queue.put(LogMessage(id, f"Shutdown Received - {processData['courier'].id}", Log._INFO))
                 self._process_event.set()
-                shutdowns_occured -= 1
-        return shutdowns_occured
+                self._process_count -= 1
+                processData["isShutdown"] = True
     
     def watcher(self):
         while not self._process_event.is_set():
@@ -77,9 +78,10 @@ class Core:
             if message is not None:
                 if message.subject == "PID":
                     self._processes[message.sender]["pid"] = message.message
-        self._log.log_queue.put(LogMessage("Core", "Watcher Shutdown", Log._INFO))
-        while self._check_shutdowns() != 0:
-            pass
+        while self._process_count != 0:
+            self._check_shutdowns()
+        self._log.log_queue.put(LogMessage("Core", "Watcher Shutdown Complete", Log._INFO))
+        self._log_process_event.set()
     
     def start(self):
         self._watcher_process.start()

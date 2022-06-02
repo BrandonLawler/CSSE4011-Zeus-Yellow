@@ -1,0 +1,38 @@
+2022-06-02 19:34:54,350 | INFO - Serial - Serial Process Starting
+2022-06-02 19:34:54,761 | INFO - Learner - KNN Process Started
+2022-06-02 19:34:54,777 | DEBUG - Learner - Sending message to Application
+2022-06-02 19:34:54,791 | DEBUG - Learner - Sending message to Influx
+2022-06-02 19:34:54,814 | INFO - Application - App Process Starting
+2022-06-02 19:34:55,243 | INFO - Influx - Influx Process Starting
+2022-06-02 19:34:55,261 | DEBUG - Influx - Received message Message(sender='Learner', receiver='Influx', subject='pullTestData', message='')
+2022-06-02 19:34:55,715 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running', 4: 'jumping jacks'})
+2022-06-02 19:34:55,778 | DEBUG - Application - Registering classifier: 0
+2022-06-02 19:34:55,845 | DEBUG - Application - Registering classifier: 1
+2022-06-02 19:34:55,892 | DEBUG - Application - Registering classifier: 2
+2022-06-02 19:34:55,928 | DEBUG - Application - Registering classifier: 3
+2022-06-02 19:34:56,085 | DEBUG - Application - Registering classifier: 4
+2022-06-02 19:35:04,848 | DEBUG - Application - Sending message to Learner
+2022-06-02 19:35:04,883 | DEBUG - Learner - Received message Message(sender='Application', receiver='Learner', subject='registerClassifier', message='squating')
+2022-06-02 19:35:04,908 | INFO - Learner - New Classification Created 5: squating
+2022-06-02 19:35:04,949 | DEBUG - Learner - Sending message to Application
+2022-06-02 19:35:04,982 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={5: 'squating'})
+2022-06-02 19:35:05,032 | DEBUG - Application - Registering classifier: 5
+2022-06-02 19:35:11,015 | DEBUG - Application - Sending message to Learner
+2022-06-02 19:35:11,024 | DEBUG - Learner - Received message Message(sender='Application', receiver='Learner', subject='deleteClassifier', message=5)
+2022-06-02 19:35:11,024 | DEBUG - Learner - Sending message to Application
+2022-06-02 19:35:11,042 | DEBUG - Learner - Sending message to Influx
+2022-06-02 19:35:11,065 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='deleteClassifier', message=5)
+2022-06-02 19:35:13,262 | INFO - Application - Shutdown Occured
+2022-06-02 19:35:13,410 | INFO - Learner - KNN Process Stopped
+2022-06-02 19:35:13,456 | INFO - Learner - Shutdown Occured
+2022-06-02 19:35:13,612 | INFO - Serial - Serial Process Stopping
+2022-06-02 19:35:13,765 | INFO - Serial - Shutdown Occured
+2022-06-02 19:35:13,861 | INFO - Shutdown Received - Application
+2022-06-02 19:35:13,912 | INFO - Shutdown Received - Learner
+2022-06-02 19:35:13,950 | INFO - Shutdown Received - Serial
+2022-06-02 19:36:06,479 | DEBUG - Influx - Sending message to Learner
+2022-06-02 19:36:06,641 | INFO - Influx - Influx Process Stopping
+2022-06-02 19:36:06,642 | INFO - Shutdown Received - Influx
+2022-06-02 19:36:06,643 | INFO - Watcher Shutdown Complete
+2022-06-02 19:36:06,644 | INFO - Influx - Shutdown Occured
+2022-06-02 19:36:06,644 | INFO - Logger Process Exited
