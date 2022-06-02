@@ -1,0 +1,35 @@
+2022-06-03 09:09:21,616 | INFO - Influx - Influx Process Starting
+2022-06-03 09:09:21,703 | INFO - Serial - Serial Process Starting
+2022-06-03 09:09:21,908 | INFO - Application - App Process Starting
+2022-06-03 09:09:22,119 | INFO - Learner - KNN Process Started
+2022-06-03 09:09:22,122 | DEBUG - Learner - Sending message to Application
+2022-06-03 09:09:22,130 | DEBUG - Learner - Sending message to Influx
+2022-06-03 09:09:22,134 | DEBUG - Influx - Received message Message(sender='Learner', receiver='Influx', subject='pullTestData', message='')
+2022-06-03 09:09:22,202 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running'})
+2022-06-03 09:09:22,202 | DEBUG - Application - Registering classifier: 0
+2022-06-03 09:09:22,214 | DEBUG - Application - Registering classifier: 1
+2022-06-03 09:09:22,235 | DEBUG - Application - Registering classifier: 2
+2022-06-03 09:09:22,235 | DEBUG - Application - Registering classifier: 3
+2022-06-03 09:09:23,115 | DEBUG - Influx - Sending message to Learner
+2022-06-03 09:09:23,131 | DEBUG - Learner - Received message Message(sender='Influx', receiver='Learner', subject='trainData', message=[<src.classes.KnnData object at 0x0000021500AC5210>, <src.classes.KnnData object at 0x0000021500AC5C30>, <src.classes.KnnData object at 0x0000021500AC6410>, <src.classes.KnnData object at 0x0000021500AC6BF0>, <src.classes.KnnData object at 0x0000021500AC73D0>, <src.classes.KnnData object at 0x0000021500AC7D00>, <src.classes.KnnData object at 0x0000021500AF0700>, <src.classes.KnnData object at 0x0000021500AF10C0>, <src.classes.KnnData object at 0x0000021500AF1A80>, <src.classes.KnnData object at 0x0000021500AF2440>, <src.classes.KnnData object at 0x0000021500AF2E00>, <src.classes.KnnData object at 0x0000021500AF37C0>, <src.classes.KnnData object at 0x0000021500B0C1C0>])
+2022-06-03 09:09:34,569 | DEBUG - Application - Sending message to Serial
+2022-06-03 09:09:34,576 | DEBUG - Application - Sending message to Serial
+2022-06-03 09:09:34,586 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-06-03 09:09:34,597 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-06-03 09:09:35,169 | DEBUG - Application - Sending message to Serial
+2022-06-03 09:09:35,184 | DEBUG - Application - Sending message to Serial
+2022-06-03 09:09:35,187 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-06-03 09:09:35,197 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=False)
+2022-06-03 09:09:37,091 | INFO - Application - Shutdown Occured
+2022-06-03 09:09:37,146 | INFO - Shutdown Received - Application
+2022-06-03 09:09:37,197 | INFO - Learner - KNN Process Stopped
+2022-06-03 09:09:37,245 | INFO - Learner - Shutdown Occured
+2022-06-03 09:09:37,281 | INFO - Serial - Serial Process Stopping
+2022-06-03 09:09:37,336 | INFO - Shutdown Received - Serial
+2022-06-03 09:09:37,402 | INFO - Serial - Shutdown Occured
+2022-06-03 09:09:37,450 | INFO - Shutdown Received - Influx
+2022-06-03 09:09:37,514 | INFO - Shutdown Received - Learner
+2022-06-03 09:09:37,535 | INFO - Watcher Shutdown Complete
+2022-06-03 09:09:37,542 | INFO - Influx - Influx Process Stopping
+2022-06-03 09:09:37,566 | INFO - Influx - Shutdown Occured
+2022-06-03 09:09:37,569 | INFO - Logger Process Exited
