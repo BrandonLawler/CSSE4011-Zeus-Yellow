@@ -393,7 +393,6 @@ class App:
     
     def _check_messages(self):
         if self._courier.check_receive():
-            print("receiving")
             msg = self._courier.receive()
             if msg.subject == "registerClassifier":
                 for key, value in msg.message.items():
