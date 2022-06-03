@@ -104,6 +104,8 @@ class KNN:
                 self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), msg.message, "deleteClassifier")
                 self._courier.send(os.getenv("CSSE4011-YZ-CN-INFLUX"), msg.message, "clearTestData")
             elif msg.subject == "trainData":
+                self._courier.info("Training Data Received")
+                self._courier.send(os.getenv("CSSE4011-YZ-CN-APPLICATION"), "", "trainingReceived")
                 self._knnTrainData.extend_trainings(msg.message)
             elif msg.subject == "serialData":
                 self.predict(msg.message)

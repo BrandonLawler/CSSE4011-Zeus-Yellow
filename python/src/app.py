@@ -229,13 +229,15 @@ class App:
         self._activeFrame.layout().addWidget(self._activeDisplayFrame, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self._activeModeDisplay = QLabel("Disconnected")
+        self._activeModeDisplay.setObjectName("activeModeDisplay")
         self._activeFrame.layout().addWidget(self._activeModeDisplay, alignment=Qt.AlignmentFlag.AlignCenter)
 
-        self._activeReadingDisplay = QLabel("")
+        self._activeReadingDisplay = QLabel("Waiting for Training Data")
         self._activeFrame.layout().addWidget(self._activeReadingDisplay, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self._startButton = QPushButton("Start")
         self._startButton.clicked.connect(self._start_active)
+        self._startButton.setDisabled(True)
         self._activeFrame.layout().addWidget(self._startButton, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self._update_display(self._DISCONNECT)
@@ -426,6 +428,9 @@ class App:
                 self._update_display(self._CONNECT)
             elif msg.subject == "serialDisconnect":
                 self._update_display(self._DISCONNECT)
+            elif msg.subject == "trainingReceived":
+                self._activeReadingDisplay.setText(f"Training Data Received")
+                self._startButton.setDisabled(False)
             else:
                 self._courier.error(f"Unknown Message: {msg.subject} - {msg.message}")
 

@@ -71,6 +71,9 @@ class Core:
                 self._process_count -= 1
                 processData["isShutdown"] = True
     
+    def send(self, receiver: str, subject:str, message=None):
+        self._courier.send(receiver, subject, message)
+    
     def watcher(self):
         while not self._process_event.is_set():
             self._check_shutdowns()
