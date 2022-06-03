@@ -62,6 +62,7 @@ class Core:
     def update_couriers(self, newCourierId: str, newCourierQueue: multiprocessing.Queue):
         for processData in self._processes.values():
             processData["courier"].add_send_queue(newCourierId, newCourierQueue)
+        self._courier.add_send_queue(newCourierId, newCourierQueue)
     
     def _check_shutdowns(self):
         for id, processData in self._processes.items():
@@ -72,7 +73,7 @@ class Core:
                 processData["isShutdown"] = True
     
     def send(self, receiver: str, subject:str, message=None):
-        self._courier.send(receiver, subject, message)
+        self._courier.send(receiver, message, subject)
     
     def watcher(self):
         while not self._process_event.is_set():

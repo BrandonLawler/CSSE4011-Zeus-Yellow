@@ -1,0 +1,12 @@
+2022-06-03 14:43:59,403 | INFO - Serial - Serial Process Starting
+2022-06-03 14:43:59,465 | INFO - Influx - Influx Process Starting
+2022-06-03 14:43:59,495 | INFO - Learner - KNN Process Started
+2022-06-03 14:43:59,509 | INFO - Application - App Process Starting
+2022-06-03 14:44:15,188 | INFO - Application - Shutdown Occured
+2022-06-03 14:44:15,190 | INFO - Shutdown Received - Application
+2022-06-03 14:44:15,190 | INFO - Serial - Serial Process Stopping
+2022-06-03 14:44:15,191 | INFO - Learner - KNN Process Stopped
+2022-06-03 14:44:15,192 | INFO - Learner - Shutdown Occured
+2022-06-03 14:44:15,197 | INFO - Serial - Shutdown Occured
+2022-06-03 14:44:15,197 | INFO - Shutdown Received - Serial
+2022-06-03 14:44:15,198 | INFO - Shutdown Received - Learner
