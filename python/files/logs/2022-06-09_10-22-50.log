@@ -1,0 +1,35 @@
+2022-06-09 10:22:53,780 | INFO - Influx - Influx Process Starting
+2022-06-09 10:22:53,783 | INFO - Serial - Serial Process Starting
+2022-06-09 10:22:54,123 | INFO - Learner - KNN Process Started
+2022-06-09 10:22:54,124 | INFO - Application - App Process Starting
+2022-06-09 10:22:54,124 | DEBUG - Learner - Sending message to Application
+2022-06-09 10:22:54,125 | DEBUG - Learner - Sending message to Influx
+2022-06-09 10:22:54,126 | DEBUG - Influx - Received message Message(sender='Learner', receiver='Influx', subject='pullTestData', message='')
+2022-06-09 10:22:54,599 | DEBUG - Application - Received message Message(sender='Learner', receiver='Application', subject='registerClassifier', message={0: 'sitting', 1: 'standing', 2: 'walking', 3: 'running', 4: 'jumping jacks', 5: 'squating'})
+2022-06-09 10:22:54,607 | DEBUG - Application - Registering classifier: 0
+2022-06-09 10:22:54,626 | DEBUG - Application - Registering classifier: 1
+2022-06-09 10:22:54,630 | DEBUG - Application - Registering classifier: 2
+2022-06-09 10:22:54,646 | DEBUG - Application - Registering classifier: 3
+2022-06-09 10:22:54,774 | DEBUG - Application - Registering classifier: 4
+2022-06-09 10:22:54,775 | DEBUG - Application - Registering classifier: 5
+2022-06-09 10:23:01,369 | DEBUG - Application - Sending message to Serial
+2022-06-09 10:23:01,408 | DEBUG - Application - Sending message to Serial
+2022-06-09 10:23:01,416 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-06-09 10:23:01,416 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=True)
+2022-06-09 10:23:20,772 | DEBUG - Application - Sending message to Serial
+2022-06-09 10:23:20,774 | DEBUG - Application - Sending message to Serial
+2022-06-09 10:23:20,775 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='stop', message='')
+2022-06-09 10:23:20,775 | DEBUG - Serial - Received message Message(sender='Application', receiver='Serial', subject='trainMode', message=False)
+2022-06-09 10:23:26,422 | INFO - Application - Shutdown Occured
+2022-06-09 10:23:26,517 | INFO - Shutdown Received - Application
+2022-06-09 10:23:26,575 | INFO - Serial - Serial Process Stopping
+2022-06-09 10:23:26,583 | INFO - Serial - Shutdown Occured
+2022-06-09 10:23:26,583 | INFO - Shutdown Received - Serial
+2022-06-09 10:23:26,583 | INFO - Learner - KNN Process Stopped
+2022-06-09 10:23:26,583 | INFO - Learner - Shutdown Occured
+2022-06-09 10:23:26,583 | INFO - Shutdown Received - Learner
+2022-06-09 10:23:40,809 | DEBUG - Influx - Sending message to Learner
+2022-06-09 10:23:40,958 | INFO - Influx - Influx Process Stopping
+2022-06-09 10:23:40,961 | INFO - Shutdown Received - Influx
+2022-06-09 10:23:40,961 | INFO - Watcher Shutdown Complete
+2022-06-09 10:23:40,961 | INFO - Logger Process Exited
